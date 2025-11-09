@@ -1,0 +1,91 @@
+@prefix sac: <https://slashlife.ai/ontology/agent/> .
+@prefix sap: <https://slashlife.ai/ontology/agent-profile/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+#################################################################
+# Agent Profile Ontology
+# (Pragmatic Layer: personality, language behaviour, tone model)
+#################################################################
+
+sap:AgentProfile a owl:Class ;
+    rdfs:label "Agent Profile" ;
+    rdfs:comment """
+    Defines the pragmatic and behavioral parameters of an autonomous Agent.
+
+    While operational semantics (identity, capability, delegation, ledger)
+    describe what an Agent *can* do, the AgentProfile describes *how* it behaves:
+    linguistic preferences, tone patterns, and personality-like behavioral biases.
+
+    This layer influences task decomposition, intent interpretation,
+    and multi-agent coordination stability. It is not executable semantics,
+    but a stable behavioral descriptor.
+    """ .
+
+#################################################################
+# Properties
+#################################################################
+
+sap:hasPersonality a owl:ObjectProperty ;
+    rdfs:label "has personality profile" ;
+    rdfs:domain sap:AgentProfile ;
+    rdfs:range sap:Personality ;
+    rdfs:comment "Describes behavioral bias patterns shaping interaction and task choices." .
+
+sap:usesLanguage a owl:ObjectProperty ;
+    rdfs:label "language preference" ;
+    rdfs:domain sap:AgentProfile ;
+    rdfs:range sap:LanguagePreference ;
+    rdfs:comment "Defines preferred linguistic expression, grammar formality, and interaction mode." .
+
+sap:hasToneModel a owl:ObjectProperty ;
+    rdfs:label "tone model" ;
+    rdfs:domain sap:AgentProfile ;
+    rdfs:range sap:ToneModel ;
+    rdfs:comment "Describes pragmatics: cadence, pacing, assertiveness, contextual modulation." .
+
+#################################################################
+# Sub-classes — Profile Components
+#################################################################
+
+sap:Personality a owl:Class ;
+    rdfs:label "Personality" ;
+    rdfs:comment """
+    A stable behavioral schema shaping decision preference, risk style,
+    response architecture, and interaction patterns.
+    """ .
+
+sap:LanguagePreference a owl:Class ;
+    rdfs:label "Language Preference" ;
+    rdfs:comment """
+    Linguistic parameters such as preferred language, register, clarity constraints,
+    or structural tendencies affecting expression and parsing.
+    """ .
+
+sap:ToneModel a owl:Class ;
+    rdfs:label "Tone Model" ;
+    rdfs:comment """
+    Pragmatic modulation model guiding emotional stance, pacing, softness/firmness,
+    or collaborative rhythm.
+    """ .
+
+#################################################################
+# Example Individuals (optional)
+#################################################################
+
+sap:DefaultProfile a sap:AgentProfile ;
+    rdfs:label "Default Agent Profile" ;
+    sap:hasPersonality sap:NeutralPersonality ;
+    sap:usesLanguage sap:StandardLanguage ;
+    sap:hasToneModel sap:BalancedTone .
+
+sap:NeutralPersonality a sap:Personality ;
+    rdfs:label "Neutral Personality" .
+
+sap:StandardLanguage a sap:LanguagePreference ;
+    rdfs:label "Standard Language Model" .
+
+sap:BalancedTone a sap:ToneModel ;
+    rdfs:label "Balanced Tone Model" .

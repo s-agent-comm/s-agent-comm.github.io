@@ -1,0 +1,31 @@
+{
+  "@context": {
+    "@version": 1.1,
+
+    "sap": "https://slashlife.ai/ontology/agent-profile/",
+    "sac": "https://slashlife.ai/ontology/agent/",
+
+    "AgentProfile": "sap:AgentProfile",
+    "Personality": "sap:Personality",
+    "LanguagePreference": "sap:LanguagePreference",
+    "ToneModel": "sap:ToneModel",
+
+    "hasPersonality": {
+      "@id": "sap:hasPersonality",
+      "@type": "@id"
+    },
+
+    "usesLanguage": {
+      "@id": "sap:usesLanguage",
+      "@type": "@id"
+    },
+
+    "hasToneModel": {
+      "@id": "sap:hasToneModel",
+      "@type": "@id"
+    },
+
+    "label": "rdfs:label",
+    "comment": "rdfs:comment"
+  }
+}

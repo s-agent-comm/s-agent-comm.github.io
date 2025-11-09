@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ai.slashlife.agent-profile.schema.json",
+  "title": "Agent Profile",
+  "type": "object",
+
+  "properties": {
+    "id": { "type": "string", "format": "uri" },
+
+    "personality": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "traits": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["id"]
+    },
+
+    "language": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "preferred_language": { "type": "string" },
+        "register": { "type": "string" },
+        "formality": { "type": "string" }
+      },
+      "required": ["id", "preferred_language"]
+    },
+
+    "tone": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "cadence": { "type": "string" },
+        "assertiveness": { "type": "string" },
+        "warmth": { "type": "string" },
+        "interaction_style": { "type": "string" }
+      },
+      "required": ["id"]
+    }
+  },
+
+  "required": ["id", "personality", "language", "tone"]
+}

@@ -11,6 +11,15 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+@prefix sac: <https://slashlife.ai/ontology/agent/> .
+@prefix sap: <https://slashlife.ai/ontology/agent-profile/> .
+
+sac:hasProfile a owl:ObjectProperty ;
+    rdfs:label "has profile" ;
+    rdfs:domain sac:Agent ;
+    rdfs:range sap:AgentProfile ;
+    rdfs:comment "Links an Agent to its pragmatic / behavioral profile." .
+
 
 #################################################################
 #   Agent Identity Model
@@ -247,3 +256,5 @@ contract:contract a owl:ObjectProperty ;
 contract:termsUri a owl:DatatypeProperty ;
     rdfs:domain contract:Contract ;
     rdfs:range xsd:anyURI .
+
+

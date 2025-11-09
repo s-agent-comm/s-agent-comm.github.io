@@ -1,0 +1,150 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sap: <https://slashlife.ai/ontology/agent-profile/> .
+@prefix sac: <https://slashlife.ai/ontology/agent/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Root Shape: Agent Profile
+#################################################################
+
+sap:AgentProfileShape
+    a sh:NodeShape ;
+    sh:targetClass sap:AgentProfile ;
+
+    # Required fields
+    sh:property [
+        sh:path sap:id ;
+        sh:datatype xsd:anyURI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "AgentProfile.id must be a valid URI." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:hasPersonality ;
+        sh:class sap:Personality ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "AgentProfile must include exactly one Personality object." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:usesLanguage ;
+        sh:class sap:LanguagePreference ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "AgentProfile must include exactly one LanguagePreference object." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:hasToneModel ;
+        sh:class sap:ToneModel ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "AgentProfile must include exactly one ToneModel object." ;
+    ] ;
+.
+
+#################################################################
+# Personality Shape
+#################################################################
+
+sap:PersonalityShape
+    a sh:NodeShape ;
+    sh:targetClass sap:Personality ;
+
+    sh:property [
+        sh:path sap:id ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Personality.id is required." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:traits ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:message "Traits must be strings." ;
+    ] ;
+.
+
+#################################################################
+# LanguagePreference Shape
+#################################################################
+
+sap:LanguagePreferenceShape
+    a sh:NodeShape ;
+    sh:targetClass sap:LanguagePreference ;
+
+    sh:property [
+        sh:path sap:id ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "LanguagePreference.id is required." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:preferred_language ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "LanguagePreference.preferred_language is required." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:register ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:message "Register must be a string." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:formality ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:message "Formality must be a string." ;
+    ] ;
+.
+
+#################################################################
+# ToneModel Shape
+#################################################################
+
+sap:ToneModelShape
+    a sh:NodeShape ;
+    sh:targetClass sap:ToneModel ;
+
+    sh:property [
+        sh:path sap:id ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "ToneModel.id is required." ;
+    ] ;
+
+    sh:property [
+        sh:path sap:cadence ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+    ] ;
+
+    sh:property [
+        sh:path sap:assertiveness ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+    ] ;
+
+    sh:property [
+        sh:path sap:warmth ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+    ] ;
+
+    sh:property [
+        sh:path sap:interaction_style ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+    ] ;
+.
