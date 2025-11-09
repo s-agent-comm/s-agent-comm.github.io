@@ -13,10 +13,10 @@ Each subdirectory within `examples/` represents a distinct use case and typicall
 
 We encourage you to explore each example to understand how the Agent Ontology can be applied to various domains. Here are some of the key use cases currently available:
 
-### 1. Cross-Border EUDI Wallet
-*   **Description**: Demonstrates an agent facilitating secure cross-border interactions using a European Digital Identity (EUDI) wallet.
-*   **Key Concepts**: Agent Identity, Operational Profile, Security Binding.
-*   **Location**: `cross-border-eudi-wallet/`
+### 1. BH Treadmill IoT Control
+*   **Description**: Demonstrates how a BH Treadmill can be modeled as an agent, allowing secure delegation of control to third-party fitness applications for interactive workout sessions.
+*   **Key Concepts**: Agent as Physical Device, Intent, Delegation, Capabilities, Security Binding, IoT Control.
+*   **Location**: `bh-treadmill-iot-control/`
 
 ### 2. Running Machine MVS (Minimal Viable Service)
 *   **Description**: Models a simple agent representing a running machine, exposing basic control capabilities like start and stop.

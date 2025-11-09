@@ -1,0 +1,56 @@
+{
+  "@context": "https://ns.slashlife.ai/agent/context/agent.jsonld",
+  "@id": "https://ns.slashlife.ai/agent/examples/bh-treadmill-iot-control#BHTreadmillAgent",
+  "@type": "core:Agent",
+  "rdfs:label": "BH Treadmill Agent (Model T-800)",
+  "agent:hasProfile": {
+    "@type": "agent:AgentProfile",
+    "agent:coreIdentity": {
+      "@type": "agent:AgentIdentity",
+      "agent:did": "did:example:bh-treadmill-SN-123456789",
+      "agent:title": "BH Treadmill Agent (Model T-800)",
+      "agent:version": "2.1.0"
+    },
+    "agent:purposeAndRole": {
+      "@type": "agent:PurposeRole",
+      "agent:objective": "To provide a secure, interoperable digital interface for controlling a BH treadmill and monitoring workout data.",
+      "agent:owner": "did:example:user-alice-123"
+    },
+    "agent:capabilities": {
+      "@type": "agent:CapabilityBundle",
+      "agent:skill": [
+        "StartWorkout",
+        "StopWorkout",
+        "SetSpeed",
+        "SetIncline",
+        "GetWorkoutData"
+      ]
+    },
+    "agent:operationalTriggersAndIO": {
+      "@type": "agent:OperationalProfile",
+      "agent:trigger": {
+        "@type": "agent:Trigger",
+        "rdfs:label": "Control Command Received"
+      },
+      "agent:input": {
+        "@type": "agent:InputSpec",
+        "rdfs:label": "Signed JSON object with command parameters (e.g., { action: 'SetSpeed', value: 10.5 })"
+      },
+      "agent:output": {
+        "@type": "agent:OutputSpec",
+        "rdfs:label": "JSON object with current treadmill status (e.g., { speed: 10.5, incline: 2.0, status: 'running' })"
+      }
+    },
+    "agent:systemIntegrationAndDependencies": {
+      "@type": "agent:SystemIntegration",
+      "agent:dependsOn": {
+        "@id": "https://api.bh-fitness.com/firmware-service"
+      }
+    },
+    "security:securityBinding": {
+      "@type": "security:SecurityBinding",
+      "security:cryptographicBinding": "JWS",
+      "security:trustModel": "Delegated Authority via Owner's Signature"
+    }
+  }
+}
