@@ -1,7 +1,7 @@
-@prefix sac: <https://slashlife.ai/ontology/sac#> .
-@prefix agent: <https://slashlife.ai/ontology/agent#> .
-@prefix ledger: <https://slashlife.ai/ontology/ledger#> .
-@prefix deleg: <https://slashlife.ai/ontology/delegation#> .
+@prefix sac: <https://ns.slashlife.ai/agent/core#> .
+@prefix agent: <https://ns.slashlife.ai/agent/agent#> .
+@prefix ledger: <https://ns.slashlife.ai/agent/ledger#> .
+@prefix deleg: <https://ns.slashlife.ai/agent/delegation#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
