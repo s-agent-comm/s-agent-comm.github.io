@@ -1,0 +1,55 @@
+{
+  "@context": {
+    "@vocab": "http://example.org/agent-ontology/ledger#",
+    "core": "http://example.org/agent-ontology/core#",
+    "agent": "http://example.org/agent-ontology/agent#",
+    "del": "http://example.org/agent-ontology/delegation#",
+    "acc": "http://example.org/agent-ontology/accountability#",
+    "cap": "http://example.org/agent-ontology/capability#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "LedgerEvent": "ledger:LedgerEvent",
+    "RuntimeLedgerEvent": "ledger:RuntimeLedgerEvent",
+    "GovernanceLedgerEvent": "ledger:GovernanceLedgerEvent",
+
+    "eventId": "ledger:eventId",
+    "timestamp": { "@id": "ledger:timestamp", "@type": "xsd:dateTime" },
+    "previousEventHash": "ledger:previousEventHash",
+    "appendOnly": { "@id": "ledger:appendOnly", "@type": "xsd:boolean" },
+
+    "hash": "ledger:hash",
+    "signature": "ledger:signature",
+    "publicKey": "ledger:publicKey",
+    "proofType": "ledger:proofType",
+    "verifiedBy": "ledger:verifiedBy",
+
+    "actor": { "@id": "ledger:actor", "@type": "@id" },
+    "delegation": { "@id": "ledger:delegation", "@type": "@id" },
+
+    "action": { "@id": "ledger:action", "@type": "@id" },
+    "intent": "ledger:intent",
+    "usesCapability": { "@id": "ledger:usesCapability", "@type": "@id" },
+    "capabilityVersion": "ledger:capabilityVersion",
+
+    "executionContext": { "@id": "ledger:executionContext", "@type": "@id" },
+    "environment": "ledger:environment",
+    "hardwareAnchor": "ledger:hardwareAnchor",
+    "sandboxProfile": "ledger:sandboxProfile",
+
+    "result": { "@id": "ledger:result", "@type": "@id" },
+    "sideEffect": "ledger:sideEffect",
+    "stateChange": "ledger:stateChange",
+
+    "accountabilityRecord": { "@id": "ledger:accountabilityRecord", "@type": "@id" },
+
+    "aiActSection": "ledger:aiActSection",
+    "riskClassification": "ledger:riskClassification",
+
+    "governanceAction": { "@id": "ledger:governanceAction", "@type": "@id" },
+    "specVersion": { "@id": "ledger:specVersion", "@type": "@id" }
+  }
+}

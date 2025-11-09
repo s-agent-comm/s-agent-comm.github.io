@@ -1,0 +1,249 @@
+@prefix : <http://example.org/agent-ontology/agent#> .
+@prefix core: <http://example.org/agent-ontology/core#> .
+@prefix del: <http://example.org/agent-ontology/delegation#> .
+@prefix cap: <http://example.org/agent-ontology/capability#> .
+@prefix econ: <http://example.org/agent-ontology/economic#> .
+@prefix contract: <http://example.org/agent-ontology/contract#> .
+@prefix life: <http://example.org/agent-ontology/lifecycle#> .
+@prefix did: <https://www.w3.org/ns/did#> .
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+#################################################################
+#   Agent Identity Model
+#################################################################
+
+:AgentIdentity a owl:Class ;
+    rdfs:subClassOf core:AgentEntity ;
+    rdfs:label "AgentIdentity" ;
+    rdfs:comment "Identity attributes for an Agent, including DID, versioning, and associated metadata." .
+
+:coreIdentity a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range :AgentIdentity ;
+    rdfs:label "coreIdentity" .
+
+:did a owl:DatatypeProperty ;
+    rdfs:domain :AgentIdentity ;
+    rdfs:range xsd:string ;
+    rdfs:label "did" ;
+    rdfs:comment "Primary DID associated with the Agent." .
+
+:version a owl:DatatypeProperty ;
+    rdfs:domain :AgentIdentity ;
+    rdfs:range xsd:string ;
+    rdfs:label "version" .
+
+:title a owl:DatatypeProperty ;
+    rdfs:domain :AgentIdentity ;
+    rdfs:range xsd:string ;
+    rdfs:label "title" .
+
+
+#################################################################
+#   Purpose and Role
+#################################################################
+
+:PurposeRole a owl:Class ;
+    rdfs:label "PurposeRole" ;
+    rdfs:comment "Declares the operational purpose and ownership of the Agent." .
+
+:purposeAndRole a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range :PurposeRole ;
+    rdfs:label "purposeAndRole" .
+
+:objective a owl:DatatypeProperty ;
+    rdfs:domain :PurposeRole ;
+    rdfs:range xsd:string ;
+    rdfs:label "objective" .
+
+:owner a owl:DatatypeProperty ;
+    rdfs:domain :PurposeRole ;
+    rdfs:range xsd:string ;
+    rdfs:label "owner" .
+
+
+#################################################################
+#   Capability Model (linked to capability ontology)
+#################################################################
+
+:CapabilityBundle a owl:Class ;
+    rdfs:label "CapabilityBundle" ;
+    rdfs:comment "Declared capabilities and skills for an Agent." .
+
+:capabilities a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range :CapabilityBundle .
+
+:skill a owl:DatatypeProperty ;
+    rdfs:domain :CapabilityBundle ;
+    rdfs:range xsd:string .
+
+
+#################################################################
+#   Operational Triggers and IO
+#################################################################
+
+:OperationalProfile a owl:Class ;
+    rdfs:label "OperationalProfile" ;
+    rdfs:comment "Triggers, input schema, and output schema of an Agent." .
+
+:operationalTriggersAndIO a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range :OperationalProfile .
+
+:Trigger a owl:Class ;
+    rdfs:label "Trigger" .
+
+:trigger a owl:ObjectProperty ;
+    rdfs:domain :OperationalProfile ;
+    rdfs:range :Trigger .
+
+:InputSpec a owl:Class ;
+    rdfs:label "InputSpec" .
+
+:input a owl:ObjectProperty ;
+    rdfs:domain :OperationalProfile ;
+    rdfs:range :InputSpec .
+
+:OutputSpec a owl:Class ;
+    rdfs:label "OutputSpec" .
+
+:output a owl:ObjectProperty ;
+    rdfs:domain :OperationalProfile ;
+    rdfs:range :OutputSpec .
+
+
+#################################################################
+#   System Integration / Dependency Graph
+#################################################################
+
+:SystemIntegration a owl:Class ;
+    rdfs:label "SystemIntegration" ;
+    rdfs:comment "Dependency and interface declarations for OS-level agent execution." .
+
+:systemIntegrationAndDependencies a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range :SystemIntegration .
+
+:dependsOn a owl:ObjectProperty ;
+    rdfs:domain :SystemIntegration ;
+    rdfs:range core:AgentEntity ;
+    rdfs:label "dependsOn" .
+
+:InterfaceSpec a owl:Class ;
+    rdfs:label "InterfaceSpec" .
+
+:interface a owl:ObjectProperty ;
+    rdfs:domain :SystemIntegration ;
+    rdfs:range :InterfaceSpec .
+
+
+#################################################################
+#   Economic Interfaces
+#################################################################
+
+:economicInterfaces a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range econ:WalletSet .
+
+econ:WalletSet a owl:Class ;
+    rdfs:label "WalletSet" .
+
+econ:Wallet a owl:Class ;
+    rdfs:label "Wallet" .
+
+econ:wallet a owl:ObjectProperty ;
+    rdfs:domain econ:WalletSet ;
+    rdfs:range econ:Wallet .
+
+econ:address a owl:DatatypeProperty ;
+    rdfs:domain econ:Wallet ;
+    rdfs:range xsd:string .
+
+
+#################################################################
+#   Identity Interfaces (Multi-DID)
+#################################################################
+
+:identityInterfaces a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range :IdentitySet .
+
+:IdentitySet a owl:Class ;
+    rdfs:label "IdentitySet" .
+
+:IdentityBinding a owl:Class ;
+    rdfs:label "IdentityBinding" .
+
+:identity a owl:ObjectProperty ;
+    rdfs:domain :IdentitySet ;
+    rdfs:range :IdentityBinding .
+
+:keyManagementSystem a owl:DatatypeProperty ;
+    rdfs:domain :IdentityBinding ;
+    rdfs:range xsd:string .
+
+
+#################################################################
+#   Lifecycle Management
+#################################################################
+
+:lifecycleManagement a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range life:LifecycleRecord .
+
+life:LifecycleRecord a owl:Class ;
+    rdfs:label "LifecycleRecord" .
+
+life:genesisRecord a owl:ObjectProperty ;
+    rdfs:domain life:LifecycleRecord ;
+    rdfs:range life:GenesisRecord .
+
+life:GenesisRecord a owl:Class ;
+    rdfs:label "GenesisRecord" .
+
+life:state a owl:DatatypeProperty ;
+    rdfs:domain life:LifecycleRecord ;
+    rdfs:range xsd:string .
+
+life:healthCheck a owl:ObjectProperty ;
+    rdfs:domain life:LifecycleRecord ;
+    rdfs:range life:HealthCheckSpec .
+
+life:HealthCheckSpec a owl:Class ;
+    rdfs:label "HealthCheckSpec" .
+
+life:decommissionRecord a owl:ObjectProperty ;
+    rdfs:domain life:LifecycleRecord ;
+    rdfs:range life:DecommissionRecord .
+
+life:DecommissionRecord a owl:Class ;
+    rdfs:label "DecommissionRecord" .
+
+
+#################################################################
+#   Contractual Interfaces
+#################################################################
+
+:contractualInterfaces a owl:ObjectProperty ;
+    rdfs:domain core:Agent ;
+    rdfs:range contract:ContractSet .
+
+contract:ContractSet a owl:Class ;
+    rdfs:label "ContractSet" .
+
+contract:Contract a owl:Class ;
+    rdfs:label "Contract" .
+
+contract:contract a owl:ObjectProperty ;
+    rdfs:domain contract:ContractSet ;
+    rdfs:range contract:Contract .
+
+contract:termsUri a owl:DatatypeProperty ;
+    rdfs:domain contract:Contract ;
+    rdfs:range xsd:anyURI .

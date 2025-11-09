@@ -1,0 +1,147 @@
+{
+  "@context": {
+    "@vocab": "http://example.org/agent-ontology/core#",
+
+    /* ==== Core Identifiers ==== */
+
+    "id": "@id",
+    "type": "@type",
+
+    "Agent": "http://example.org/agent-ontology/core#Agent",
+    "AgentEntity": "http://example.org/agent-ontology/core#AgentEntity",
+    "Capability": "http://example.org/agent-ontology/core#Capability",
+    "Intent": "http://example.org/agent-ontology/core#Intent",
+    "Delegation": "http://example.org/agent-ontology/core#Delegation",
+    "Action": "http://example.org/agent-ontology/core#Action",
+    "ExecutionContext": "http://example.org/agent-ontology/core#ExecutionContext",
+    "TraceEvent": "http://example.org/agent-ontology/core#TraceEvent",
+    "Artifact": "http://example.org/agent-ontology/core#Artifact",
+
+
+    /* ==== DID & Identity vocab (W3C-aligned) ==== */
+
+    "did": {
+      "@id": "https://www.w3.org/ns/did#did",
+      "@type": "@id"
+    },
+    "publicKey": {
+      "@id": "https://www.w3.org/ns/did#publicKey",
+      "@type": "xsd:string"
+    },
+    "controller": {
+      "@id": "https://www.w3.org/ns/did#controller",
+      "@type": "@id"
+    },
+
+
+    /* ==== Homomorphix OS Agent Model ==== */
+
+    "core_identity": "http://example.org/agent-ontology/agent#coreIdentity",
+    "purpose_and_role": "http://example.org/agent-ontology/agent#purposeAndRole",
+    "capabilities": "http://example.org/agent-ontology/agent#capabilities",
+    "operational_triggers_and_io": "http://example.org/agent-ontology/agent#operationalTriggersAndIO",
+    "system_integration_and_dependencies": "http://example.org/agent-ontology/agent#systemIntegrationAndDependencies",
+    "economic_interfaces": "http://example.org/agent-ontology/agent#economicInterfaces",
+    "identity_interfaces": "http://example.org/agent-ontology/agent#identityInterfaces",
+    "lifecycle_management": "http://example.org/agent-ontology/agent#lifecycleManagement",
+    "contractual_interfaces": "http://example.org/agent-ontology/agent#contractualInterfaces",
+
+
+    /* ==== Core Object Properties (from core.ttl) ==== */
+
+    "hasIntent": {
+      "@id": "http://example.org/agent-ontology/core#hasIntent",
+      "@type": "@id"
+    },
+    "hasCapability": {
+      "@id": "http://example.org/agent-ontology/core#hasCapability",
+      "@type": "@id"
+    },
+    "executesAction": {
+      "@id": "http://example.org/agent-ontology/core#executesAction",
+      "@type": "@id"
+    },
+    "producesArtifact": {
+      "@id": "http://example.org/agent-ontology/core#producesArtifact",
+      "@type": "@id"
+    },
+    "recordedIn": {
+      "@id": "http://example.org/agent-ontology/core#recordedIn",
+      "@type": "@id"
+    },
+    "contextOf": {
+      "@id": "http://example.org/agent-ontology/core#contextOf",
+      "@type": "@id"
+    },
+
+
+    /* ==== Delegation schema alignment ==== */
+
+    "delegatedBy": {
+      "@id": "http://example.org/agent-ontology/delegation#delegatedBy",
+      "@type": "@id"
+    },
+    "delegatesTo": {
+      "@id": "http://example.org/agent-ontology/delegation#delegatesTo",
+      "@type": "@id"
+    },
+    "delegationScope": {
+      "@id": "http://example.org/agent-ontology/delegation#delegationScope",
+      "@type": "@id"
+    },
+
+
+    /* ==== Capability expansions ==== */
+
+    "function": {
+      "@id": "http://example.org/agent-ontology/capability#function",
+      "@type": "xsd:string"
+    },
+    "skill": {
+      "@id": "http://example.org/agent-ontology/capability#skill",
+      "@type": "xsd:string"
+    },
+
+
+    /* ==== Lifecycle / Genesis / Trust Anchors ==== */
+
+    "genesis_record": "http://example.org/agent-ontology/lifecycle#genesisRecord",
+    "state": "http://example.org/agent-ontology/lifecycle#state",
+    "health_check": "http://example.org/agent-ontology/lifecycle#healthCheck",
+    "decommission_record": "http://example.org/agent-ontology/lifecycle#decommissionRecord",
+
+    "timestamp": {
+      "@id": "http://example.org/agent-ontology/core#timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "ledger_event_id": {
+      "@id": "http://example.org/agent-ontology/lifecycle#ledgerEventId",
+      "@type": "xsd:string"
+    },
+
+
+    /* ==== Economic Interface (wallet) ==== */
+
+    "wallets": "http://example.org/agent-ontology/economic#wallets",
+    "address": "http://example.org/agent-ontology/economic#walletAddress",
+    "currencies": "http://example.org/agent-ontology/economic#supportedCurrencies",
+    "economicCapabilities": "http://example.org/agent-ontology/economic#capabilities",
+
+
+    /* ==== Contractual Interfaces ==== */
+
+    "contracts": "http://example.org/agent-ontology/contract#contracts",
+    "terms_uri": {
+      "@id": "http://example.org/agent-ontology/contract#termsUri",
+      "@type": "@id"
+    },
+    "compensation_terms": "http://example.org/agent-ontology/contract#compensationTerms",
+    "parties": "http://example.org/agent-ontology/contract#parties",
+    "scope": "http://example.org/agent-ontology/contract#scope",
+
+
+    /* ==== Utility ==== */
+
+    "description": "http://example.org/agent-ontology/core#description"
+  }
+}

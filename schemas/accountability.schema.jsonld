@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://slashlife.ai/schema/accountability.schema.jsonld",
+  "title": "Agent Accountability Schema",
+  "description": "Semantic representation of traceable and verifiable accountability for actions performed by AI agents across Web, OS, and hardware trust layers.",
+  "type": "object",
+  "@context": "https://slashlife.ai/contexts/accountability.context.jsonld",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this accountability record."
+    },
+
+    "type": {
+      "type": "string",
+      "const": "acc:AccountabilityEvent"
+    },
+
+    "actor": {
+      "type": "object",
+      "description": "The agent or human principal responsible for the action.",
+      "properties": {
+        "did": { "type": "string" },
+        "role": { "type": "string" },
+        "agentVersion": { "type": "string" }
+      },
+      "required": ["did"]
+    },
+
+    "action": {
+      "type": "object",
+      "description": "The executed action associated with this record.",
+      "properties": {
+        "capabilityId": { "type": "string" },
+        "intent": { "type": "string" },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["capabilityId", "timestamp"]
+    },
+
+    "context": {
+      "type": "object",
+      "description": "Execution context including OS environment, hardware anchors, and system conditions.",
+      "properties": {
+        "os": { "type": "string" },
+        "kernelVersion": { "type": "string" },
+        "sandboxProfile": { "type": "string" },
+        "hardwareAnchor": { "type": "string" },
+        "processId": { "type": "string" },
+        "environment": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+
+    "delegationBasis": {
+      "type": "object",
+      "description": "Semantic delegation chain authorizing the action.",
+      "properties": {
+        "delegationId": { "type": "string" },
+        "grantorDid": { "type": "string" },
+        "granteeDid": { "type": "string" },
+        "chain": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "delegationId": { "type": "string" },
+              "grantorDid": { "type": "string" },
+              "granteeDid": { "type": "string" },
+              "timestamp": { "type": "string", "format": "date-time" }
+            },
+            "required": ["delegationId", "grantorDid", "granteeDid"]
+          }
+        }
+      }
+    },
+
+    "responsibilityAttribution": {
+      "type": "object",
+      "description": "Assigns responsibility among agents or principals based on execution evidence.",
+      "properties": {
+        "assignedTo": {
+          "type": "string",
+          "format": "uri",
+          "description": "The DID of the agent to whom responsibility is assigned."
+        },
+        "rationale": {
+          "type": "string",
+          "description": "The rationale for the responsibility attribution."
+        }
+      },
+      "required": ["assignedTo", "rationale"]
+    },
+
+    "results": {
+      "type": "object",
+      "description": "Execution results, including outputs and side effects.",
+      "properties": {
+        "returnValue": {},
+        "sideEffects": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "stateChanges": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+
+    "verification": {
+      "type": "object",
+      "description": "Cryptographic evidence supporting the integrity of this record.",
+      "properties": {
+        "signature": { "type": "string" },
+        "publicKey": { "type": "string" },
+        "proofType": { "type": "string" },
+        "hash": { "type": "string" },
+        "ledgerEventId": { "type": "string" }
+      }
+    },
+
+    "compliance": {
+      "type": "object",
+      "description": "Regulatory and operational compliance markers.",
+      "properties": {
+        "aiActSection": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "documentationReference": {
+          "type": "string"
+        },
+        "riskClassification": {
+          "type": "string",
+          "enum": ["minimal", "limited", "high", "systemic"]
+        }
+      }
+    }
+  },
+
+  "required": ["id", "type", "actor", "action"]
+}

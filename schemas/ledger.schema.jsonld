@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://slashlife.ai/schema/ledger.schema.jsonld",
+  "title": "Agent Ledger Event Schema",
+  "description": "Semantic representation of a canonical event in an append-only ledger stream for agent actions.",
+  "type": "object",
+  "@context": "https://slashlife.ai/contexts/ledger.context.jsonld",
+  "definitions": {
+    "verification": {
+      "type": "object",
+      "properties": {
+        "hash": { "type": "string" },
+        "signature": { "type": "string" },
+        "publicKey": { "type": "string" },
+        "proofType": { "type": "string" },
+        "verifiedBy": { "type": "string" }
+      },
+      "required": ["hash", "signature", "publicKey"]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this ledger event (eventId)."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["ledger:LedgerEvent", "ledger:RuntimeLedgerEvent", "ledger:GovernanceLedgerEvent"]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "previousEventHash": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string",
+      "format": "uri",
+      "description": "DID of the agent or principal responsible for the event."
+    },
+    "verification": {
+      "$ref": "#/definitions/verification"
+    }
+  },
+  "required": ["id", "type", "timestamp", "actor", "verification"],
+  "allOf": [
+    {
+      "if": {
+        "properties": { "type": { "const": "ledger:RuntimeLedgerEvent" } }
+      },
+      "then": {
+        "properties": {
+          "action": { "type": "string", "format": "uri" },
+          "intent": { "type": "string" },
+          "usesCapability": { "type": "string", "format": "uri" },
+          "delegation": { "type": "string", "format": "uri" },
+          "executionContext": { "type": "string", "format": "uri" },
+          "result": { "type": "object" },
+          "sideEffect": { "type": "string" },
+          "stateChange": { "type": "string" }
+        },
+        "required": ["action", "usesCapability"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "type": { "const": "ledger:GovernanceLedgerEvent" } }
+      },
+      "then": {
+        "properties": {
+          "governanceAction": { "type": "object" },
+          "specVersion": { "type": "object" }
+        },
+        "required": ["governanceAction"]
+      }
+    }
+  ]
+}

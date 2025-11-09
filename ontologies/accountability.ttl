@@ -1,0 +1,118 @@
+@prefix acc: <http://example.org/agent-ontology/accountability#> .
+@prefix agent: <http://example.org/agent-ontology/agent#> .
+@prefix cap: <http://example.org/agent-ontology/capability#> .
+@prefix del: <http://example.org/agent-ontology/delegation#> .
+@prefix core: <http://example.org/agent-ontology/core#> .
+@prefix ledger: <http://example.org/agent-ontology/ledger#> .
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+#################################################################
+# Core Accountability Classes
+#################################################################
+
+acc:AccountabilityEvent a owl:Class ;
+    rdfs:label "AccountabilityEvent" ;
+    rdfs:comment "Evaluative record assessing correctness, authorization, and compliance for an executed action." .
+
+acc:ResponsibilityAttribution a owl:Class ;
+    rdfs:label "ResponsibilityAttribution" ;
+    rdfs:comment "Assigns responsibility among agents or principals based on execution evidence." .
+
+acc:DelegationBasis a owl:Class ;
+    rdfs:label "DelegationBasis" ;
+    rdfs:comment "Chain of delegation evaluations supporting action legitimacy." .
+
+acc:ComplianceAssessment a owl:Class ;
+    rdfs:label "ComplianceAssessment" ;
+    rdfs:comment "Assessment of regulatory compliance, including AI Act considerations." .
+
+
+#################################################################
+# Event Identity
+#################################################################
+
+acc:eventId a owl:DatatypeProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range xsd:string .
+
+acc:timestamp a owl:DatatypeProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range xsd:dateTime .
+
+
+#################################################################
+# Actor and Action Binding
+#################################################################
+
+acc:actor a owl:ObjectProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range agent:Agent .
+
+acc:action a owl:ObjectProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range core:Action .
+
+acc:intent a owl:DatatypeProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range xsd:string .
+
+
+#################################################################
+# Delegation Evaluation
+#################################################################
+
+acc:delegationChain a owl:ObjectProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range acc:DelegationBasis .
+
+acc:referencesDelegation a owl:ObjectProperty ;
+    rdfs:domain acc:DelegationBasis ;
+    rdfs:range del:Delegation .
+
+
+#################################################################
+# Responsibility Attribution
+#################################################################
+
+acc:responsibility a owl:ObjectProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range acc:ResponsibilityAttribution .
+
+acc:assignedTo a owl:ObjectProperty ;
+    rdfs:domain acc:ResponsibilityAttribution ;
+    rdfs:range agent:Agent .
+
+acc:rationale a owl:DatatypeProperty ;
+    rdfs:domain acc:ResponsibilityAttribution ;
+    rdfs:range xsd:string .
+
+
+#################################################################
+# Compliance and Regulatory Dimensions
+#################################################################
+
+acc:compliance a owl:ObjectProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range acc:ComplianceAssessment .
+
+acc:aiActSection a owl:DatatypeProperty ;
+    rdfs:domain acc:ComplianceAssessment ;
+    rdfs:range xsd:string .
+
+acc:riskClass a owl:DatatypeProperty ;
+    rdfs:domain acc:ComplianceAssessment ;
+    rdfs:range xsd:string .
+
+
+#################################################################
+# Ledger Integration
+#################################################################
+
+acc:linkedLedgerEvent a owl:ObjectProperty ;
+    rdfs:domain acc:AccountabilityEvent ;
+    rdfs:range ledger:LedgerEvent ;
+    rdfs:comment "Formal relation connecting accountability evaluation to recorded runtime event." .

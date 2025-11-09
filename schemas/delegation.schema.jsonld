@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://slashlife.ai/schema/delegation.schema.jsonld",
+  "title": "Agent Delegation Schema",
+  "description": "Semantic representation of authority delegation between AI agents or between human and agent principals.",
+  "type": "object",
+  "@context": "https://slashlife.ai/contexts/delegation.context.jsonld",
+
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of this delegation instance."
+    },
+
+    "type": {
+      "type": "string",
+      "const": "core:Delegation"
+    },
+
+    "grantor": {
+      "type": "object",
+      "description": "Entity delegating authority.",
+      "properties": {
+        "did": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["did"]
+    },
+
+    "grantee": {
+      "type": "object",
+      "description": "Entity receiving authority.",
+      "properties": {
+        "did": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["did"]
+    },
+
+    "scope": {
+      "type": "object",
+      "description": "Domain and limitations of the delegated authority.",
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "description": "A list of capability IDs permitted under this delegation.",
+          "items": { "type": "string" }
+        },
+        "intent": {
+          "type": "string",
+          "description": "High-level semantic intent governing delegated action."
+        },
+        "resources": {
+          "type": "array",
+          "description": "Resource identifiers available to the grantee.",
+          "items": { "type": "string" }
+        },
+        "constraints": {
+          "type": "object",
+          "description": "Execution and behavioral constraints.",
+          "properties": {
+            "timeBounds": {
+              "type": "object",
+              "properties": {
+                "notBefore": { "type": "string", "format": "date-time" },
+                "notAfter": { "type": "string", "format": "date-time" }
+              }
+            },
+            "usageLimit": { "type": "number" },
+            "riskLevel": {
+              "type": "string",
+              "enum": ["low", "medium", "high"]
+            },
+            "contextualRequirements": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "delegationChain": {
+      "type": "array",
+      "description": "Ordered list linking prior delegations, forming a chain of authority.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "delegationId": { "type": "string" },
+          "grantorDid": { "type": "string" },
+          "granteeDid": { "type": "string" },
+          "timestamp": { "type": "string", "format": "date-time" }
+        },
+        "required": ["delegationId", "grantorDid", "granteeDid"]
+      }
+    },
+
+    "verification": {
+      "type": "object",
+      "description": "Cryptographic material supporting verification of delegation validity.",
+      "properties": {
+        "signature": { "type": "string" },
+        "publicKey": { "type": "string" },
+        "proofType": { "type": "string" },
+        "ledgerEventId": { "type": "string" }
+      }
+    },
+
+    "revocation": {
+      "type": "object",
+      "description": "Revocation record when a delegation is terminated or restricted.",
+      "properties": {
+        "revoked": { "type": "boolean", "default": false },
+        "reason": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "authority": { "type": "string" },
+        "ledgerEventId": { "type": "string" }
+      }
+    },
+
+    "audit": {
+      "type": "object",
+      "description": "Audit requirements for delegated actions.",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["none", "basic", "strict", "cryptographic"],
+          "default": "basic"
+        },
+        "reportingChannels": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "required": [
+    "id",
+    "type",
+    "grantor",
+    "grantee",
+    "scope"
+  ]
+}

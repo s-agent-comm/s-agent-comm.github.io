@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "@vocab": "http://example.org/agent-ontology/capability#",
+    "core": "http://example.org/agent-ontology/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "Capability": "core:Capability",
+    "PrimitiveCapability": "cap:PrimitiveCapability",
+    "CompositeCapability": "cap:CompositeCapability",
+
+    "label": "rdfs:label",
+    "description": "cap:description",
+    "capabilityId": "cap:capabilityId",
+
+    "includes": { "@id": "cap:includes", "@type": "@id" },
+    "dependsOnCapability": { "@id": "cap:dependsOnCapability", "@type": "@id" },
+
+    "classifiedAs": { "@id": "cap:classifiedAs", "@type": "@id" },
+    "CapabilityClass": "cap:CapabilityClass",
+
+    "inputs": { "@id": "cap:requiresInput", "@type": "@id" },
+    "InputSchema": "cap:InputSchema",
+    "outputs": { "@id": "cap:producesOutput", "@type": "@id" },
+    "OutputSchema": "cap:OutputSchema",
+
+    "executionPattern": { "@id": "cap:executionPattern", "@type": "@id" },
+    "ExecutionPattern": "cap:ExecutionPattern",
+
+    "hasConstraint": { "@id": "cap:hasConstraint", "@type": "@id" },
+    "CapabilityConstraint": "cap:CapabilityConstraint",
+    "allowedContext": "cap:allowedContext",
+    "prohibitedContext": "cap:prohibitedContext",
+    "requiresPermission": "cap:requiresPermission",
+
+    "provenance": { "@id": "cap:provenance", "@type": "@id" },
+    "CapabilityProvenance": "cap:CapabilityProvenance",
+    "sourceSpec": { "@id": "cap:sourceSpec", "@type": "@id" },
+    "capabilityVersion": "cap:capabilityVersion"
+  }
+}
