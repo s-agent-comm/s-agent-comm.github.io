@@ -1,76 +1,85 @@
 {
   "@context": {
-    "@vocab": "https://ns.slashlife.ai/agent/core#",
+    "@vocab": "https://ns.slashlife.ai/agent/agent#",
+    "core": "https://ns.slashlife.ai/agent/core#",
+    "id": "https://ns.slashlife.ai/agent/identity#",
+    "cap": "https://ns.slashlife.ai/agent/capability#",
+    "del": "https://ns.slashlife.ai/agent/delegation#",
+    "life": "https://ns.slashlife.ai/agent/lifecycle#",
+    "econ": "https://ns.slashlife.ai/agent/economic#",
+    "contract": "https://ns.slashlife.ai/agent/contract#",
+    "did_ns": "https://www.w3.org/ns/did#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
 
     /* ==== Core Identifiers ==== */
 
     "id": "@id",
     "type": "@type",
 
-    "Agent": "https://ns.slashlife.ai/agent/core#Agent",
-    "AgentEntity": "https://ns.slashlife.ai/agent/core#AgentEntity",
-    "Capability": "https://ns.slashlife.ai/agent/core#Capability",
-    "Intent": "https://ns.slashlife.ai/agent/core#Intent",
-    "Delegation": "https://ns.slashlife.ai/agent/core#Delegation",
-    "Action": "https://ns.slashlife.ai/agent/core#Action",
-    "ExecutionContext": "https://ns.slashlife.ai/agent/core#ExecutionContext",
-    "TraceEvent": "https://ns.slashlife.ai/agent/core#TraceEvent",
-    "Artifact": "https://ns.slashlife.ai/agent/core#Artifact",
+    "Agent": "core:Agent",
+    "AgentEntity": "core:AgentEntity",
+    "Capability": "core:Capability",
+    "Intent": "core:Intent",
+    "Delegation": "core:Delegation",
+    "Action": "core:Action",
+    "ExecutionContext": "core:ExecutionContext",
+    "TraceEvent": "core:TraceEvent",
+    "Artifact": "core:Artifact",
 
 
     /* ==== DID & Identity vocab (W3C-aligned) ==== */
 
     "did": {
-      "@id": "https://www.w3.org/ns/did#did",
+      "@id": "did_ns:did",
       "@type": "@id"
     },
     "publicKey": {
-      "@id": "https://www.w3.org/ns/did#publicKey",
+      "@id": "did_ns:publicKey",
       "@type": "xsd:string"
     },
     "controller": {
-      "@id": "https://www.w3.org/ns/did#controller",
+      "@id": "did_ns:controller",
       "@type": "@id"
     },
 
 
     /* ==== Homomorphix OS Agent Model ==== */
 
-    "core_identity": "https://ns.slashlife.ai/agent/agent#coreIdentity",
-    "purpose_and_role": "https://ns.slashlife.ai/agent/agent#purposeAndRole",
-    "capabilities": "https://ns.slashlife.ai/agent/agent#capabilities",
-    "operational_triggers_and_io": "https://ns.slashlife.ai/agent/agent#operationalTriggersAndIO",
-    "system_integration_and_dependencies": "https://ns.slashlife.ai/agent/agent#systemIntegrationAndDependencies",
-    "economic_interfaces": "https://ns.slashlife.ai/agent/agent#economicInterfaces",
-    "identity_interfaces": "https://ns.slashlife.ai/agent/agent#identityInterfaces",
-    "lifecycle_management": "https://ns.slashlife.ai/agent/agent#lifecycleManagement",
-    "contractual_interfaces": "https://ns.slashlife.ai/agent/agent#contractualInterfaces",
+    "hasIdentity": "agent:hasIdentity",
+    "purpose_and_role": "agent:purposeAndRole",
+    "capabilities": "agent:capabilities",
+    "operational_triggers_and_io": "agent:operationalTriggersAndIO",
+    "system_integration_and_dependencies": "agent:systemIntegrationAndDependencies",
+    "economic_interfaces": "agent:economicInterfaces",
+    "identity_interfaces": "agent:identityInterfaces",
+    "lifecycle_management": "agent:lifecycleManagement",
+    "contractual_interfaces": "agent:contractualInterfaces",
 
 
     /* ==== Core Object Properties (from core.ttl) ==== */
 
     "hasIntent": {
-      "@id": "https://ns.slashlife.ai/agent/core#hasIntent",
+      "@id": "core:hasIntent",
       "@type": "@id"
     },
     "hasCapability": {
-      "@id": "https://ns.slashlife.ai/agent/core#hasCapability",
+      "@id": "core:hasCapability",
       "@type": "@id"
     },
     "executesAction": {
-      "@id": "https://ns.slashlife.ai/agent/core#executesAction",
+      "@id": "core:executesAction",
       "@type": "@id"
     },
     "producesArtifact": {
-      "@id": "https://ns.slashlife.ai/agent/core#producesArtifact",
+      "@id": "core:producesArtifact",
       "@type": "@id"
     },
     "recordedIn": {
-      "@id": "https://ns.slashlife.ai/agent/core#recordedIn",
+      "@id": "core:recordedIn",
       "@type": "@id"
     },
     "contextOf": {
-      "@id": "https://ns.slashlife.ai/agent/core#contextOf",
+      "@id": "core:contextOf",
       "@type": "@id"
     },
 
@@ -78,15 +87,15 @@
     /* ==== Delegation schema alignment ==== */
 
     "delegatedBy": {
-      "@id": "https://ns.slashlife.ai/agent/delegation#delegatedBy",
+      "@id": "del:delegatedBy",
       "@type": "@id"
     },
     "delegatesTo": {
-      "@id": "https://ns.slashlife.ai/agent/delegation#delegatesTo",
+      "@id": "del:delegatesTo",
       "@type": "@id"
     },
     "delegationScope": {
-      "@id": "https://ns.slashlife.ai/agent/delegation#delegationScope",
+      "@id": "del:delegationScope",
       "@type": "@id"
     },
 
@@ -94,54 +103,54 @@
     /* ==== Capability expansions ==== */
 
     "function": {
-      "@id": "https://ns.slashlife.ai/agent/capability#function",
+      "@id": "cap:function",
       "@type": "xsd:string"
     },
     "skill": {
-      "@id": "https://ns.slashlife.ai/agent/capability#skill",
+      "@id": "cap:skill",
       "@type": "xsd:string"
     },
 
 
     /* ==== Lifecycle / Genesis / Trust Anchors ==== */
 
-    "genesis_record": "https://ns.slashlife.ai/agent/lifecycle#genesisRecord",
-    "state": "https://ns.slashlife.ai/agent/lifecycle#state",
-    "health_check": "https://ns.slashlife.ai/agent/lifecycle#healthCheck",
-    "decommission_record": "https://ns.slashlife.ai/agent/lifecycle#decommissionRecord",
+    "genesis_record": "life:genesisRecord",
+    "state": "life:state",
+    "health_check": "life:healthCheck",
+    "decommission_record": "life:decommissionRecord",
 
     "timestamp": {
-      "@id": "https://ns.slashlife.ai/agent/core#timestamp",
+      "@id": "core:timestamp",
       "@type": "xsd:dateTime"
     },
     "ledger_event_id": {
-      "@id": "https://ns.slashlife.ai/agent/lifecycle#ledgerEventId",
+      "@id": "life:ledgerEventId",
       "@type": "xsd:string"
     },
 
 
     /* ==== Economic Interface (wallet) ==== */
 
-    "wallets": "https://ns.slashlife.ai/agent/economic#wallets",
-    "address": "https://ns.slashlife.ai/agent/economic#walletAddress",
-    "currencies": "https://ns.slashlife.ai/agent/economic#supportedCurrencies",
-    "economicCapabilities": "https://ns.slashlife.ai/agent/economic#capabilities",
+    "wallets": "econ:wallets",
+    "address": "econ:walletAddress",
+    "currencies": "econ:supportedCurrencies",
+    "economicCapabilities": "econ:capabilities",
 
 
     /* ==== Contractual Interfaces ==== */
 
-    "contracts": "https://ns.slashlife.ai/agent/contract#contracts",
+    "contracts": "contract:contracts",
     "terms_uri": {
-      "@id": "https://ns.slashlife.ai/agent/contract#termsUri",
+      "@id": "contract:termsUri",
       "@type": "@id"
     },
-    "compensation_terms": "https://ns.slashlife.ai/agent/contract#compensationTerms",
-    "parties": "https://ns.slashlife.ai/agent/contract#parties",
-    "scope": "https://ns.slashlife.ai/agent/contract#scope",
+    "compensation_terms": "contract:compensationTerms",
+    "parties": "contract:parties",
+    "scope": "contract:scope",
 
 
     /* ==== Utility ==== */
 
-    "description": "https://ns.slashlife.ai/agent/core#description"
+    "description": "core:description"
   }
 }

@@ -14,9 +14,7 @@
     "Intent": "intent:Intent",
     "IntentType": "intent:IntentType",
     "IntentParameter": "intent:IntentParameter",
-    "Action": "intent:Action",
     "ActionType": "intent:ActionType",
-    "ExecutionContext": "intent:ExecutionContext",
 
     "hasIntentType": { "@id": "intent:hasIntentType", "@type": "@id" },
     "hasParameter": { "@id": "intent:hasParameter", "@type": "@id" },

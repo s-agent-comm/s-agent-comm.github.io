@@ -1,8 +1,23 @@
 @prefix ctx: <https://ns.slashlife.ai/agent/execution-context#> .
 @prefix intent: <https://ns.slashlife.ai/agent/intent#> .
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#################################################################
+# Ontology Header
+#################################################################
+
+<https://ns.slashlife.ai/agent/execution-context>
+    a owl:Ontology ;
+    dct:title "Execution Context Ontology" ;
+    dct:description "Defines the contextual frame for AI Agent actions, including environment, security, and resource constraints." ;
+    dct:modified "2025-11-10"^^xsd:date ;
+    owl:versionInfo "0.2.0" ;
+    owl:imports <https://ns.slashlife.ai/agent/intent> ;
+    owl:imports <https://ns.slashlife.ai/agent/core> .
 
 #################################################################
 # Execution Environment Classes
@@ -70,3 +85,64 @@ ctx:inputValue a owl:DatatypeProperty ;
 ctx:outputValue a owl:DatatypeProperty ;
     rdfs:domain ctx:OutputState ;
     rdfs:range xsd:string .
+
+#################################################################
+# Resource Management Classes (Threat Mitigation)
+#################################################################
+
+ctx:ResourceConstraint a owl:Class ;
+    rdfs:label "ResourceConstraint" ;
+    rdfs:comment "A constraint on a computational resource (e.g., memory, CPU, storage)." .
+
+ctx:RateLimit a owl:Class ;
+    rdfs:label "RateLimit" ;
+    rdfs:comment "A constraint on the frequency of an action or request." .
+
+ctx:Budget a owl:Class ;
+    rdfs:label "Budget" ;
+    rdfs:comment "A constraint on the financial expenditure for a task." .
+
+#################################################################
+# Resource Management Properties
+#################################################################
+
+ctx:hasResourceConstraint a owl:ObjectProperty ;
+    rdfs:domain ctx:ExecutionEnvironment ;
+    rdfs:range ctx:ResourceConstraint ;
+    rdfs:label "hasResourceConstraint" .
+
+ctx:hasRateLimit a owl:ObjectProperty ;
+    rdfs:domain ctx:ExecutionEnvironment ;
+    rdfs:range ctx:RateLimit ;
+    rdfs:label "hasRateLimit" .
+
+ctx:hasBudget a owl:ObjectProperty ;
+    rdfs:domain ctx:ExecutionEnvironment ;
+    rdfs:range ctx:Budget ;
+    rdfs:label "hasBudget" .
+
+ctx:constraintType a owl:DatatypeProperty ;
+    rdfs:domain ctx:ResourceConstraint ;
+    rdfs:range xsd:string ;
+    rdfs:comment "e.g., 'max_memory_mb', 'max_cpu_percentage'." .
+
+ctx:constraintValue a owl:DatatypeProperty ;
+    rdfs:domain ctx:ResourceConstraint ;
+    rdfs:range xsd:string .
+
+ctx:maxRequests a owl:DatatypeProperty ;
+    rdfs:domain ctx:RateLimit ;
+    rdfs:range xsd:positiveInteger .
+
+ctx:perSeconds a owl:DatatypeProperty ;
+    rdfs:domain ctx:RateLimit ;
+    rdfs:range xsd:positiveInteger .
+
+ctx:amount a owl:DatatypeProperty ;
+    rdfs:domain ctx:Budget ;
+    rdfs:range xsd:decimal .
+
+ctx:currency a owl:DatatypeProperty ;
+    rdfs:domain ctx:Budget ;
+    rdfs:range xsd:string ;
+    rdfs:comment "e.g., 'USD', 'EUR'." .

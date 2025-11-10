@@ -30,6 +30,10 @@ Not sure where to start? Here are a few ideas:
 
 We actively welcome your pull requests for concrete changes.
 
+### W3C Community Group Specifics
+
+As a W3C Community Group, all contributions to this repository are subject to the [W3C Community Contributor License Agreement (CLA)](https://www.w3.org/community/about/agreements/cla/). By contributing, you agree to the terms of this agreement. Please familiarize yourself with the [W3C Community Group Process Document](https://www.w3.org/community/about/process/) for a full understanding of how decisions are made, which is primarily through consensus among active participants.
+
 1.  **Fork the repository:** Start by forking the main repository to your own GitHub account.
 2.  **Create a new branch:** For any new feature or fix, please create a new branch in your fork.
     ```bash

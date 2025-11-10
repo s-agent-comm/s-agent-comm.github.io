@@ -6,6 +6,8 @@
 @prefix contract: <https://ns.slashlife.ai/agent/contract#> .
 @prefix life: <https://ns.slashlife.ai/agent/lifecycle#> .
 @prefix did: <https://www.w3.org/ns/did#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix id: <https://ns.slashlife.ai/agent/identity#> .
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -13,42 +15,29 @@
 
 @prefix agent-profile: <https://ns.slashlife.ai/agent/agent-profile#> .
 
+#################################################################
+# Ontology Header
+#################################################################
+
+<https://ns.slashlife.ai/agent/agent>
+    a owl:Ontology ;
+    dct:title "Agent Ontology" ;
+    dct:description "Defines the structure and properties of an AI Agent, including its identity, purpose, capabilities, and operational aspects." ;
+    dct:modified "2025-11-10"^^xsd:date ;
+    owl:versionInfo "0.2.0" ;
+    owl:imports <https://ns.slashlife.ai/agent/core> ;
+    owl:imports <https://ns.slashlife.ai/agent/identity> .
+
 :hasProfile a owl:ObjectProperty ;
     rdfs:label "has profile" ;
     rdfs:domain core:Agent ;
     rdfs:range agent-profile:AgentProfile ;
     rdfs:comment "Links an Agent to its pragmatic / behavioral profile." .
 
-
-#################################################################
-#   Agent Identity Model
-#################################################################
-
-:AgentIdentity a owl:Class ;
-    rdfs:subClassOf core:AgentEntity ;
-    rdfs:label "AgentIdentity" ;
-    rdfs:comment "Identity attributes for an Agent, including DID, versioning, and associated metadata." .
-
-:coreIdentity a owl:ObjectProperty ;
+:hasIdentity a owl:ObjectProperty ;
     rdfs:domain core:Agent ;
-    rdfs:range :AgentIdentity ;
-    rdfs:label "coreIdentity" .
-
-:did a owl:DatatypeProperty ;
-    rdfs:domain :AgentIdentity ;
-    rdfs:range xsd:string ;
-    rdfs:label "did" ;
-    rdfs:comment "Primary DID associated with the Agent." .
-
-:version a owl:DatatypeProperty ;
-    rdfs:domain :AgentIdentity ;
-    rdfs:range xsd:string ;
-    rdfs:label "version" .
-
-:title a owl:DatatypeProperty ;
-    rdfs:domain :AgentIdentity ;
-    rdfs:range xsd:string ;
-    rdfs:label "title" .
+    rdfs:range id:AgentIdentity ;
+    rdfs:label "hasIdentity" .
 
 
 #################################################################

@@ -1,9 +1,22 @@
 @prefix cap: <https://ns.slashlife.ai/agent/capability#> .
 @prefix core: <https://ns.slashlife.ai/agent/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Ontology Header
+#################################################################
+
+<https://ns.slashlife.ai/agent/capability>
+    a owl:Ontology ;
+    dct:title "Capability Ontology" ;
+    dct:description "Defines the structure and properties for describing an AI Agent's functional competences and operational capacities." ;
+    dct:modified "2025-11-10"^^xsd:date ;
+    owl:versionInfo "0.2.0" ;
+    owl:imports <https://ns.slashlife.ai/agent/core> .
 
 
 #################################################################

@@ -4,10 +4,27 @@
 @prefix del: <https://ns.slashlife.ai/agent/delegation#> .
 @prefix core: <https://ns.slashlife.ai/agent/core#> .
 @prefix ledger: <https://ns.slashlife.ai/agent/ledger#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Ontology Header
+#################################################################
+
+<https://ns.slashlife.ai/agent/accountability>
+    a owl:Ontology ;
+    dct:title "Accountability Ontology" ;
+    dct:description "Defines concepts for assessing correctness, authorization, and compliance of AI Agent actions." ;
+    dct:modified "2025-11-10"^^xsd:date ;
+    owl:versionInfo "0.2.0" ;
+    owl:imports <https://ns.slashlife.ai/agent/agent> ;
+    owl:imports <https://ns.slashlife.ai/agent/capability> ;
+    owl:imports <https://ns.slashlife.ai/agent/delegation> ;
+    owl:imports <https://ns.slashlife.ai/agent/core> ;
+    owl:imports <https://ns.slashlife.ai/agent/ledger> .
 
 
 #################################################################

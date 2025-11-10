@@ -6,6 +6,21 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#################################################################
+# Ontology Header
+#################################################################
+
+<https://ns.slashlife.ai/agent/intent>
+    a owl:Ontology ;
+    dct:title "Intent Ontology" ;
+    dct:description "Defines concepts related to the semantic expression of purpose and objectives for AI Agent actions." ;
+    dct:modified "2025-11-10"^^xsd:date ;
+    owl:versionInfo "0.2.0" ;
+    owl:imports <https://ns.slashlife.ai/agent/core> ;
+    owl:imports <https://ns.slashlife.ai/agent/delegation> ;
+    owl:imports <https://ns.slashlife.ai/agent/ledger> .
 
 #################################################################
 # Intent Model — Core Classes
@@ -23,17 +38,9 @@ intent:IntentParameter a owl:Class ;
     rdfs:label "IntentParameter" ;
     rdfs:comment "Typed parameters specifying the scope and execution conditions of an intent." .
 
-intent:Action a owl:Class ;
-    rdfs:label "Action" ;
-    rdfs:comment "An executable operation derived from an intent." .
-
 intent:ActionType a owl:Class ;
     rdfs:label "ActionType" ;
     rdfs:comment "Category of an actionable execution unit." .
-
-intent:ExecutionContext a owl:Class ;
-    rdfs:label "ExecutionContext" ;
-    rdfs:comment "Run-time context under which an action is executed." .
 
 #################################################################
 # Intent Properties
@@ -57,7 +64,7 @@ intent:authorizedBy a owl:ObjectProperty ;
 
 intent:producesAction a owl:ObjectProperty ;
     rdfs:domain intent:Intent ;
-    rdfs:range intent:Action ;
+    rdfs:range core:Action ;
     rdfs:label "producesAction" .
 
 #################################################################
@@ -65,17 +72,17 @@ intent:producesAction a owl:ObjectProperty ;
 #################################################################
 
 intent:hasActionType a owl:ObjectProperty ;
-    rdfs:domain intent:Action ;
+    rdfs:domain core:Action ;
     rdfs:range intent:ActionType ;
     rdfs:label "hasActionType" .
 
 intent:executedIn a owl:ObjectProperty ;
-    rdfs:domain intent:Action ;
-    rdfs:range intent:ExecutionContext ;
+    rdfs:domain core:Action ;
+    rdfs:range core:ExecutionContext ;
     rdfs:label "executedIn" .
 
 intent:loggedAs a owl:ObjectProperty ;
-    rdfs:domain intent:Action ;
+    rdfs:domain core:Action ;
     rdfs:range ledger:RuntimeLedgerRecord ;
     rdfs:label "loggedAs" ;
     rdfs:comment "Links an executed action to its ledger record." .

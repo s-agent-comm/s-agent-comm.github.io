@@ -1,63 +1,74 @@
-# AI Agent Ontology
+# W3C Agent Semantic Communication Community Group: AI Agent Ontology
 
-**A W3C Community Group Draft for a Standardized Agent Communication Language**
+This repository contains the formal ontology for AI Agent interoperability, security, and communication, developed as part of the **W3C Agent Semantic Communication Community Group** work. It provides a machine-readable, logically consistent framework for defining agents, their capabilities, and the rules governing their interactions.
 
----
+## Vision and Goals
 
-### **Project Status: W3C Community Group Draft**
+Our vision is to create a universal standard for safe and effective semantic communication among AI agents. This ontology serves as the foundational layer for a future where agents can securely delegate tasks, exchange value, and collaborate across different platforms and ecosystems.
 
-This repository contains the draft work of the [Semantic Agent Communication Community Group (SACG)](https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/). Our mission is to create a shared, open, and machine-readable language that allows AI agents to communicate, collaborate, and trust each other in a standardized, auditable way.
-
-### **The Vision: A Common Language for Agents**
-
-Today's AI agents often exist as "digital islands," unable to communicate effectively. We are building the common language to solve this, defining core concepts every agent can understand:
-*   **Who are you?** (Identity)
-*   **What can you do?** (Capability)
-*   **Who gave you that authority?** (Delegation)
-*   **How can we prove what you did?** (Accountability & Ledger)
-
-This core set of concepts forms a **Minimal Communicable Interface**, enabling basic interoperability and trust, with the flexibility to extend for more complex interactions.
+**Key Goals:**
+-   **Interoperability:** Define a shared vocabulary that allows agents from different developers to understand each other.
+-   **Security:** Establish a formal basis for threat modeling, delegation, and identity verification.
+-   **Verifiability:** Enable the use of automated reasoners and validators (like SHACL) to ensure agent behavior complies with established rules.
+-   **Extensibility:** Provide a modular core that can be extended to support diverse applications and domains.
 
 ---
 
-### **Live Resources & Interactive Tools**
+## High-Level Architecture
 
-Explore the ontology and specifications on our live GitHub Pages site.
+The ontology is designed as a collection of modular, interconnected components. The `core` ontology provides the fundamental concepts, upon which other modules for agent identity, capabilities, security, and more are built.
 
-*   [**Read the Core Ontology Specification (W3C ReSpec Format)**](https://slashlifeai.github.io/agent-ontology/specs/w3c/core-ontology.html)
-*   [**Explore the Full Vocabulary Index**](https://slashlifeai.github.io/agent-ontology/specs/vocabulary/)
-*   [**Interactive JSON-LD Viewer**](https://slashlifeai.github.io/agent-ontology/tools/jsonld-viewer.html)
-*   [**Interactive JSON Schema Viewer**](https://slashlifeai.github.io/agent-ontology/tools/jsonschema-viewer.html)
+The main entry point for the entire model is [`ontologies/ontology.ttl`](./ontologies/ontology.ttl), which imports all the necessary modules.
+
+```mermaid
+graph TD
+    subgraph "Ontology Modules"
+        Core
+        Agent
+        Capability
+        Delegation
+        SecurityBinding["Security Binding"]
+        ExecutionContext["Execution Context"]
+        Intent
+        Ledger
+        Payment
+        Identity
+        AgentProfile["Agent Profile"]
+    end
+
+    Agent -- depends on --> Core
+    Capability -- depends on --> Core
+    Delegation -- depends on --> Core
+    Intent -- depends on --> Core
+    SecurityBinding -- depends on --> Agent
+    AgentProfile -- depends on --> Agent
+    ExecutionContext -- depends on --> Intent
+```
 
 ---
 
-### **Developer Quickstart**
+## How to Use
 
-#### **1. Explore the Ontology**
-*   The formal definitions of all concepts are in the [`ontologies/`](./ontologies/) directory as `.ttl` files.
-*   Rich, real-world usage examples are in the [`ontologies/examples/`](./ontologies/examples/) directory.
+To use the complete ontology, we recommend loading the main entry point file in your preferred tool (e.g., Protégé for visualization, or an RDF library for programmatic access).
 
-#### **2. See the API Mapping**
-*   To understand how to implement this ontology in a RESTful API, see our [`specs/openapi-example.yml`](./specs/openapi-example.yml).
+-   **Main Ontology File:** [`ontologies/ontology.ttl`](./ontologies/ontology.ttl)
 
-#### **3. Generate Vocabulary**
-*   You can regenerate the Markdown vocabulary documentation at any time by running:
-    ```bash
-    pip install rdflib
-    python generate_vocabulary.py
-    ```
+This single file uses `owl:imports` to load the entire modular architecture, giving you access to all classes and properties.
+
+### Validation
+The repository includes a suite of [SHACL shapes](./tests/) to validate data created against the ontology. Our CI pipeline automatically runs these tests.
 
 ---
 
-### **How to Contribute**
+## Key Specifications
 
-This is an open, community-driven project. We welcome contributions of all kinds.
+The behavior and design of this ontology are guided by several key specification documents.
 
-1.  **Join the Conversation:** The best way to start is by [**joining the W3C Community Group**](https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/) and participating in the discussion.
-2.  **Read the Contribution Guidelines:** For technical contributions, please see our [**CONTRIBUTING.md**](./CONTRIBUTING.md) file.
-3.  **Open an Issue:** Have an idea or a question? [Open a GitHub Issue](https://github.com/slashlifeai/agent-ontology/issues).
+-   **Minimal Threat Model ([`specs/minimal-threat-model.md`](./specs/minimal-threat-model.md)):** This is a critical document that outlines the security threats the ontology is designed to mitigate. It is essential reading for understanding the "why" behind many of the security-related components.
+-   **Core Ontology Concepts ([`specs/core-ontology.md`](./specs/core-ontology.md)):** Describes the foundational classes and properties.
 
-### **License**
+---
 
-This work is licensed under the [W3C Software and Document License](https://www.w3.org/Consortium/Legal/2015/doc-license.html).
+## Contributing
 
+We welcome contributions from the community! Please read our [`CONTRIBUTING.md`](./CONTRIBUTING.md) file to learn how you can get involved, whether it's by improving the ontology, adding examples, or enhancing the documentation.

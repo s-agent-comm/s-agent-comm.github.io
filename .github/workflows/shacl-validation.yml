@@ -1,6 +1,10 @@
-name: SHACL Validation
+name: SHACL Validation and Vocabulary Generation
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   shacl-validate:
@@ -14,13 +18,11 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install pyshacl
+    - name: Install dependencies
       run: pip install pyshacl rdflib
 
     - name: Run SHACL validation
       run: |
-        # Assuming core.ttl is the main ontology and agent.shacl.ttl is the main SHACL file
-        # Adjust paths as necessary for other ontologies and SHACL files
         pyshacl -s ontologies/agent.ttl -d tests/agent.shacl.ttl
         pyshacl -s ontologies/accountability.ttl -d tests/accountability.shacl.ttl
         pyshacl -s ontologies/agent-profile.ttl -d tests/agent-profile.shacl.ttl
@@ -31,4 +33,33 @@ jobs:
         pyshacl -s ontologies/ledger.ttl -d tests/ledger.shacl.ttl
         pyshacl -s ontologies/payment.ttl -d tests/payment.shacl.ttl
         pyshacl -s ontologies/security-binding.ttl -d tests/security-binding.shacl.ttl
+
+  generate-vocabulary:
+    needs: shacl-validate
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install rdflib
+      run: pip install rdflib
+
+    - name: Generate vocabulary
+      run: python3 tools/generate_vocabulary.py
+
+    - name: Commit and push changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "docs: auto-generate vocabulary"
+        branch: main
+        file_pattern: specs/vocabulary/*.md
+        commit_user_name: "GitHub Actions"
+        commit_user_email: "actions@github.com"
+        commit_author: "GitHub Actions <actions@github.com>"
 

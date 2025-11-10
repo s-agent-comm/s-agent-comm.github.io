@@ -5,6 +5,21 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#################################################################
+# Ontology Header
+#################################################################
+
+<https://ns.slashlife.ai/agent/security-binding>
+    a owl:Ontology ;
+    dct:title "Security Binding Ontology" ;
+    dct:description "Defines concepts for security binding, trust chains, and threat mitigation in AI Agent systems." ;
+    dct:modified "2025-11-10"^^xsd:date ;
+    owl:versionInfo "0.2.0" ;
+    owl:imports <https://ns.slashlife.ai/agent/agent> ;
+    owl:imports <https://ns.slashlife.ai/agent/ledger> ;
+    owl:imports <https://ns.slashlife.ai/agent/core> .
 
 #################################################################
 # Trust Chain Classes
@@ -100,3 +115,48 @@ sec:IntentAlignsWithTask a owl:ObjectProperty ;
     rdfs:domain core:Intent ;
     rdfs:range core:Task ;
     rdfs:comment "Links expressed Intent to the Task it authorizes or motivates." .
+
+#################################################################
+# Classes for Confidentiality & Privacy (Threat Mitigation)
+#################################################################
+
+sec:DataHandlingPolicy a owl:Class ;
+    rdfs:label "DataHandlingPolicy" ;
+    rdfs:comment "A policy governing the processing, storage, and transmission of data." .
+
+sec:AccessControlRule a owl:Class ;
+    rdfs:label "AccessControlRule" ;
+    rdfs:comment "A rule that specifies permissions for an agent or role to perform an action on a resource." .
+
+#################################################################
+# Properties for Confidentiality & Privacy
+#################################################################
+
+sec:hasDataHandlingPolicy a owl:ObjectProperty ;
+    rdfs:domain core:ExecutionContext ;
+    rdfs:range sec:DataHandlingPolicy ;
+    rdfs:label "hasDataHandlingPolicy" .
+
+sec:hasAccessControlRule a owl:ObjectProperty ;
+    rdfs:domain core:ExecutionContext ;
+    rdfs:range sec:AccessControlRule ;
+    rdfs:label "hasAccessControlRule" .
+
+sec:policyURI a owl:DatatypeProperty ;
+    rdfs:domain sec:DataHandlingPolicy ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "A URI pointing to the detailed policy document." .
+
+sec:encryptionRequired a owl:DatatypeProperty ;
+    rdfs:domain sec:DataHandlingPolicy ;
+    rdfs:range xsd:boolean .
+
+sec:allowedAction a owl:DatatypeProperty ;
+    rdfs:domain sec:AccessControlRule ;
+    rdfs:range xsd:string ;
+    rdfs:comment "e.g., 'read', 'write', 'execute'." .
+
+sec:restrictedToRole a owl:DatatypeProperty ;
+    rdfs:domain sec:AccessControlRule ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Specifies the role to which the rule applies, e.g., 'auditor', 'owner'." .
