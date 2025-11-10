@@ -1,6 +1,7 @@
 @prefix sec: <https://ns.slashlife.ai/agent/security-binding#> .
 @prefix agent: <https://ns.slashlife.ai/agent/agent#> .
 @prefix ledger: <https://ns.slashlife.ai/agent/ledger#> .
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -77,3 +78,25 @@ sec:trustLevel a owl:DatatypeProperty ;
     rdfs:domain sec:HardwareRootOfTrust ;
     rdfs:range xsd:string ;
     rdfs:label "trustLevel" .
+
+#################################################################
+# Axioms for Threat Detection
+#################################################################
+
+# Capability and Task consistency (prevents Capability Misrepresentation)
+core:hasCapability rdfs:subPropertyOf core:requiresCapability .
+
+# Agents cannot claim conflicting capabilities (Minimal Disjoint Axiom)
+sec:CriticalCapability a owl:Class ;
+    rdfs:subClassOf core:Capability ;
+    owl:disjointWith sec:RestrictedCapability .
+
+sec:RestrictedCapability a owl:Class ;
+    rdfs:subClassOf core:Capability .
+
+# Semantic consistency between Intent and Task
+sec:IntentAlignsWithTask a owl:ObjectProperty ;
+    rdfs:label "IntentAlignsWithTask" ;
+    rdfs:domain core:Intent ;
+    rdfs:range core:Task ;
+    rdfs:comment "Links expressed Intent to the Task it authorizes or motivates." .

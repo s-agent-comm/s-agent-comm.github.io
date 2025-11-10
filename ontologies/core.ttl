@@ -45,6 +45,18 @@
     rdfs:label "TraceEvent" ;
     rdfs:comment "A verifiable record linking an Agent, an Action, and contextual constraints." .
 
+:Task a owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:comment "A well-defined action unit exchanged between Agents." .
+
+:TaskNode a owl:Class ;
+    rdfs:label "TaskNode" ;
+    rdfs:comment "Node in a task dependency graph." .
+
+:TaskDependency a owl:Class ;
+    rdfs:label "TaskDependency" ;
+    rdfs:comment "Dependency relation in a task graph." .
+
 #################################################################
 # Core Properties
 #################################################################
@@ -102,6 +114,30 @@
     rdfs:range :Action ;
     rdfs:label "contextOf" ;
     rdfs:comment "Indicates that an ExecutionContext applies to a specific Action." .
+
+:performsTask a owl:ObjectProperty ;
+    rdfs:label "performsTask" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Task ;
+    rdfs:comment "An Agent performs a given Task." .
+
+:requiresCapability a owl:ObjectProperty ;
+    rdfs:label "requiresCapability" ;
+    rdfs:domain :Task ;
+    rdfs:range :Capability ;
+    rdfs:comment "Declares that a Task requires a specific Capability." .
+
+:hasSubtask a owl:ObjectProperty ;
+    rdfs:label "hasSubtask" ;
+    rdfs:domain :Task ;
+    rdfs:range :Task ;
+    rdfs:comment "Represents hierarchical task decomposition." .
+
+:hasDependency a owl:ObjectProperty ;
+    rdfs:label "hasDependency" ;
+    rdfs:domain :TaskNode ;
+    rdfs:range :TaskNode ;
+    rdfs:comment "Represents a dependency between task nodes." .
 
 #################################################################
 # Datatype Properties

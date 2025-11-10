@@ -1,0 +1,55 @@
+@prefix : <https://ns.slashlife.ai/agent/examples/threat-model-scenario#> .
+@prefix core: <https://ns.slashlife.ai/agent/core#> .
+@prefix sec: <https://ns.slashlife.ai/agent/security-binding#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Example: Threat Model Scenario
+# This example demonstrates how the ontology's security axioms can be used to detect
+# a malicious or misconfigured agent.
+
+# --- Define Custom Capabilities ---
+
+# A capability for reading non-sensitive application logs.
+# We classify this as a "Restricted" capability, meaning it should be controlled.
+:readAppLogsCapability a sec:RestrictedCapability ;
+    rdfs:label "Read Application Logs Capability" .
+
+# A capability for administering the production database.
+# We classify this as a "Critical" capability.
+:administerDatabaseCapability a sec:CriticalCapability ;
+    rdfs:label "Administer Database Capability" .
+
+# --- Define Agents ---
+
+# A legitimate monitoring agent. It only has the logging capability.
+:monitoringAgent a core:Agent ;
+    rdfs:label "Monitoring Agent" ;
+    core:hasCapability :readAppLogsCapability .
+
+# A misconfigured or malicious agent.
+# It attempts to claim BOTH the restricted logging capability and the critical admin capability.
+# An OWL reasoner would flag this individual (`:maliciousAgent`) as inconsistent
+# because it violates the `sec:CriticalCapability owl:disjointWith sec:RestrictedCapability` axiom.
+:maliciousAgent a core:Agent ;
+    rdfs:label "Malicious Agent (Inconsistent)" ;
+    rdfs:comment "This agent is logically invalid according to the ontology's security axioms." ;
+    core:hasCapability :readAppLogsCapability ;
+    core:hasCapability :administerDatabaseCapability .
+
+# --- Define Intent and Task for a Legitimate Operation ---
+
+# The high-level intent is to monitor application health.
+:monitoringIntent a core:Intent ;
+    rdfs:label "Monitor Application Health Intent" .
+
+# The specific task is to analyze logs.
+:analyzeLogsTask a core:Task ;
+    rdfs:label "Analyze Logs Task" ;
+    core:requiresCapability :readAppLogsCapability . # This task requires the specific logging capability.
+
+# We formally link the intent to the task, ensuring semantic alignment.
+:monitoringIntent sec:IntentAlignsWithTask :analyzeLogsTask .
+
+# A delegation could then be created to assign `:analyzeLogsTask` to `:monitoringAgent`,
+# which would be valid. Assigning it to `:maliciousAgent` would be invalid.
