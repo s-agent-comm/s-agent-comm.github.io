@@ -1,144 +1,61 @@
-# Semantic Agent Communication Community Group
-*W3C Community Group — Draft Repository Overview*
+# AI Agent Ontology
 
-## 1. Scope and Purpose
-
-The **Semantic Agent Communication Community Group (SAC‑CG)** aims to define a shared, interoperable semantic model for communication between AI Agents across heterogeneous systems, vendors, and jurisdictions.
-
-This includes foundational ontology layers for **identity binding**, **capability description**, **delegation structures**, **intent semantics**, and **verifiable execution records** supporting secure, auditable agent‑to‑agent interaction.
-
-The ontology defined here is abstracted from real operational cross‑border systems to ensure practical applicability. It aligns with the broader Web architecture and provides a future pathway toward **ISO/IEC**–level interoperability.
-
-### 1.1 Foundational Concepts
-
-- **Agent‑Native Computation Model**  
-  Autonomous agents function as first‑class OS entities, not merely applications.
-
-- **Semantic‑Operational Ontology**  
-  Ontology concepts map directly to executable system behaviors.
-
-- **Ledger‑Based Accountability**  
-  Immutable, append‑only records ensure verifiable auditability and cross‑system trust.
-
-- **TEE/DID/Audit Chain Binding**  
-  Cryptographic identity and execution guarantees tied to secure hardware anchors.
-
-- **Economic and Payment Primitives**  
-  A model for defining and executing value transfers (payments) between agents in a standardized, auditable manner.
-
-### 1.2 Relationship to the Web and Semantic Web
-
-This project extends Web principles into autonomous agent interaction:
-
-- **Global Interoperability** via URIs, RDF, JSON‑LD  
-- **Semantic Clarity** via OWL/RDF definitions  
-- **Linked Data + Reasoning** enabling inference over identity, delegation, and execution chains  
+**A W3C Community Group Draft for a Standardized Agent Communication Language**
 
 ---
 
-## 2. Repository Structure
+### **Project Status: W3C Community Group Draft**
 
-### **2.1 `ontologies/` — Core Semantic Definitions**
-- `.ttl` ontology definitions  
-- `context/`: JSON‑LD contexts  
-- `profiles/`: JSON schema validation profiles  
-- `examples/`: Detailed usage samples and real-world user stories (e.g., multi-agent workflows, OBM/ODM/OEM business models). Refer to individual `README.md` files within this directory for full details.  
+This repository contains the draft work of the [Semantic Agent Communication Community Group (SACG)](https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/). Our mission is to create a shared, open, and machine-readable language that allows AI agents to communicate, collaborate, and trust each other in a standardized, auditable way.
 
-### **2.2 `specs/` — Human‑Readable Specifications**
-- Design rationale, conceptual explanations, and narrative specifications  
+### **The Vision: A Common Language for Agents**
 
-### **2.3 `discussions/` — Community Collaboration**
-- Meeting notes, proposals, community RFCs  
-
-### **2.4 `tests/` — Conformance and Consistency**
-- SHACL or equivalent constraint validation suites  
+Today's AI agents often exist as "digital islands," unable to communicate effectively. We are building the common language to solve this, defining core concepts every agent can understand:
+*   **Who are you?** (Identity)
+*   **What can you do?** (Capability)
+*   **Who gave you that authority?** (Delegation)
+*   **How can we prove what you did?** (Accountability & Ledger)
 
 ---
 
-## 3. Reference Implementation
+### **Live Resources & Interactive Tools**
 
-Parts of the ontology are validated against **SlashLife 的「[AI Workforce OS](https://slashlife.ai/technology/workforceos/)」與「AI Backoffice」**, an agent‑native runtime supporting cross‑border operational use cases.
+Explore the ontology and specifications on our live GitHub Pages site.
 
-The CG encourages independent implementations.  
-The ontology itself is vendor‑neutral and not bound to any runtime.
-
----
-
-## 4. Goals of the Community Group
-
-The CG aims to develop:
-
-- A unified semantic model for agent **identity**, **capabilities**, **delegation**, and **intent**  
-- Machine‑interpretable structures enabling **verifiable execution**, **traceability**, and **auditability**  
-- Interoperability across multi‑vendor, multi‑jurisdiction, and cross‑layer environments  
-- A pathway toward future **W3C Notes** and downstream **ISO/IEC** standardization  
+*   [**Read the Core Ontology Specification (W3C ReSpec Format)**](https://slashlifeai.github.io/agent-ontology/specs/w3c/core-ontology.html)
+*   [**Explore the Full Vocabulary Index**](https://slashlifeai.github.io/agent-ontology/specs/vocabulary/)
+*   [**Interactive JSON-LD Viewer**](https://slashlifeai.github.io/agent-ontology/tools/jsonld-viewer.html)
+*   [**Interactive JSON Schema Viewer**](https://slashlifeai.github.io/agent-ontology/tools/jsonschema-viewer.html)
 
 ---
 
-## 5. Getting Started
+### **Developer Quickstart**
 
-### 5.1 Quick Start
+#### **1. Explore the Ontology**
+*   The formal definitions of all concepts are in the [`ontologies/`](./ontologies/) directory as `.ttl` files.
+*   Rich, real-world usage examples are in the [`ontologies/examples/`](./ontologies/examples/) directory.
 
-This example shows how to validate an agent definition against its schema and expand its semantic meaning using Python.
+#### **2. See the API Mapping**
+*   To understand how to implement this ontology in a RESTful API, see our [`specs/openapi-example.yml`](./specs/openapi-example.yml).
 
-**Prerequisites:**
-```bash
-pip install jsonschema pyld
-```
-
-**Example Code:**
-```python
-import json
-from jsonschema import validate
-from pyld import jsonld
-
-# 1. Load the agent definition and its schema
-with open('ontologies/examples/minimal-agent.jsonld', 'r') as f:
-    agent_doc = json.load(f)
-
-with open('ontologies/profiles/agent.jsonld', 'r') as f:
-    agent_schema = json.load(f)
-
-# 2. Validate the document against the schema
-try:
-    validate(instance=agent_doc, schema=agent_schema)
-    print("✅ Validation successful!")
-except Exception as e:
-    print(f"❌ Validation failed: {e}")
-
-# 3. Expand the document to see its full semantic meaning
-# (Note: for a real application, you would use a remote context)
-with open('ontologies/context/agent.jsonld', 'r') as f:
-    context_doc = json.load(f)
-
-expanded = jsonld.expand(agent_doc, {'@context': context_doc})
-print("\nExpanded JSON-LD:")
-print(json.dumps(expanded, indent=2))
-```
+#### **3. Generate Vocabulary**
+*   You can regenerate the Markdown vocabulary documentation at any time by running:
+    ```bash
+    pip install rdflib
+    python generate_vocabulary.py
+    ```
 
 ---
 
-## 6. Participation and Contribution
+### **How to Contribute**
 
-This is an open, community-driven project. We welcome contributions of all kinds, from participating in discussions to submitting code and documentation.
+This is an open, community-driven project. We welcome contributions of all kinds.
 
-### 6.1 Join the Community Group
+1.  **Join the Conversation:** The best way to start is by [**joining the W3C Community Group**](https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/) and participating in the discussion.
+2.  **Read the Contribution Guidelines:** For technical contributions, please see our [**CONTRIBUTING.md**](./CONTRIBUTING.md) file.
+3.  **Open an Issue:** Have an idea or a question? [Open a GitHub Issue](https://github.com/slashlifeai/agent-ontology/issues).
 
-The Community Group is open to all. To join and participate in formal discussions:
+### **License**
 
-- **Join here (activation pending 5 supporters):**  
-  https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/
+This work is licensed under the [W3C Software and Document License](https://www.w3.org/Consortium/Legal/2015/doc-license.html).
 
-### 6.2 How to Contribute
-
-For technical contributions to this repository, please see our **[Contribution Guidelines](CONTRIBUTING.md)**.
-
-The best way to start is by opening a [GitHub Issue](https://github.com/slashlifeai/agent-ontology/issues) to discuss your ideas.
-
----
-
-## 7. License
-
-Ontology files and specifications will follow open licenses (e.g., W3C Software and Document License) to enable broad adoption.
-
----
