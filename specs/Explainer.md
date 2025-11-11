@@ -151,7 +151,21 @@ Each `Narrative` is identified by a unique `Narrative-ID`. This ID serves as:
 
 This Unified Narrative model transforms the system from a transaction processor into a **decentralized, verifiable, shared narrative machine**, where the system itself is a living, evolving story of interactions.
 
-### 5.4. Theoretical Underpinnings: Speech Act Theory (Optional Extension)
+### 5.5. Explaining the "Why": Narrative as the Foundation for AI Explainability
+
+A core challenge in AI is explainability (XAI)—understanding why an agent made a particular decision. The `Narrative` model offers a paradigm-shifting solution by focusing on external, verifiable behavior rather than internal, opaque thought processes.
+
+The `Narrative` serves as the **definitive explanation for an agent's external actions** by:
+
+1.  **Externalizing Decision-Making:** Instead of being a private, internal state, an agent's decision to act is externalized as a signed `CommunicativeAct` (e.g., `Accept`, `Delegate`) within a shared `Narrative`. This transforms a "black box" decision into a transparent, auditable "social commitment."
+
+2.  **Providing Complete Context:** The `Narrative` log provides the full context for any given action. To understand why an agent performed a task, one can simply replay the `Narrative` to see the initial `Intent`, the exact `Delegation` it received, and the entire negotiation history (`Query`, `Report`, etc.) that preceded its commitment.
+
+3.  **Enabling Root Cause Analysis:** When an unexpected outcome occurs, the `Narrative` provides an unbreakable chain of causality. It allows auditors, developers, or other agents to trace an event backward from the final `ExecutionRecord` to the originating `Intent`, identifying the precise point of failure or miscommunication.
+
+In this framework, we no longer need to ask an AI, "What were you thinking?" Instead, we can ask the `Narrative`, "What was the verifiable sequence of events and authorizations that led to this action?" This provides a robust, objective, and machine-readable foundation for explainability, which is crucial for building trustworthy and accountable AI systems.
+
+### 5.6. Theoretical Underpinnings: Speech Act Theory (Optional Extension)
 
 While the core ontology maintains a minimalist design, its `CommunicativeAct` concept finds a profound theoretical alignment with **Speech Act Theory**, a philosophical framework that posits that language is not merely descriptive but performative—we "do things with words."
 
