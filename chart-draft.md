@@ -45,7 +45,7 @@ A runtime-agnostic schema defining:
 - Human-to-agent interface
 - Multi-model interoperability
 
-**Note:** This group does not define transport protocols or serialization formats.
+**Note:** This group focuses exclusively on the **semantic payload** of a communication. It does not define transport protocols (e.g., TCP/IP, HTTP), agent implementation details (e.g., LLMs, internal reasoning models), or specific A2A communication patterns. The defined ontology represents the "content of the message," not the "envelope" or the "delivery mechanism."
 
 #### 2.5 Safety Signaling
 Minimal runtime safety signals such as:

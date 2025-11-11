@@ -10,8 +10,9 @@ Our vision is to create a universal standard for safe and effective semantic com
 
 **Key Goals:**
 -   **Interoperability:** Define a shared vocabulary that allows agents from different developers to understand each other.
--   **Security:** Establish a formal basis for threat modeling, delegation, and identity verification.
--   **Verifiability:** Enable the use of automated reasoners and validators (like SHACL) to ensure agent behavior complies with established rules.
+-   **Protocol-Agnostic:** Focus on the **semantic payload** of communication, ensuring the ontology can be used over any network protocol (HTTP, WebSockets, etc.) and is independent of specific agent implementations (e.g., LLMs).
+-   **Security:** Establish a formal basis for threat modeling, delegation, and identity verification, leveraging W3C Decentralized Identifiers (DIDs).
+-   **Verifiability:** Enable cryptographic proof of authority and actions through W3C Verifiable Credentials (VCs) and ensure data compliance with SHACL validation.
 -   **Extensibility:** Provide a modular core that can be extended to support diverse applications and domains.
 
 ---

@@ -18,6 +18,14 @@ This language, an **ontology**, defines a set of core concepts that any agent ca
 
 By building on Web standards, we enable agents to communicate and interact over the internet in a decentralized, secure, and auditable manner, just like how the Web enabled global information exchange.
 
+### The "Content," Not the "Container"
+
+A critical principle of this ontology is the separation of concerns. It standardizes the **semantic payload**—the meaning of the message itself—not the transport protocol used to send it.
+
+Think of it like a legal contract. The contract's meaning (the parties, terms, and signatures) is the same whether it's sent by postal mail, fax, or as a PDF email attachment. The delivery mechanism (the "container") is separate from the legally binding content.
+
+Similarly, our ontology defines the "digital contract" for agent interactions. It can be transmitted over any network protocol (HTTP, WebSockets, etc.) and even used in non-digital contexts. We focus on standardizing the verifiable "what" and "why," leaving developers free to choose the "how."
+
 ## 3. A Simple Use Case: Alice's Automated Trip
 
 Let's imagine a simple story to see how this works in practice.
