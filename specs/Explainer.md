@@ -59,6 +59,19 @@ This approach elegantly connects two types of value:
 
 By treating both task completion and payment as state changes within the same ledger, we create a powerful, auditable link between work and compensation. This provides a single source of truth for the entire lifecycle of a delegation, from semantic agreement to financial settlement.
 
+### 4.2. Relationship to Blockchain
+
+It is important to clarify the relationship between this ontology and blockchain technology.
+
+The **Ledger** in our model is a *logical concept*—it represents the need for an immutable, ordered record of agent interactions. A **blockchain** is a powerful *technical implementation* for such a ledger, especially in decentralized, trustless environments.
+
+However, they are not the same thing, and our model is intentionally decoupled:
+
+*   **This Ontology Defines the "What":** Our core contribution is defining the **semantics** of the records. We provide the structure for `Intent`, `Delegation`, and `ExecutionRecord` so that machines can understand the *meaning* behind the events.
+*   **Blockchain Provides the "How":** A blockchain can provide strong guarantees about the *immutability and integrity* of those records. It ensures that once a record is written, it cannot be changed or deleted.
+
+In short, blockchain technology by itself does not solve the problem of semantic interoperability. It doesn't tell you *what* to write on the ledger or what that data *means*. Our ontology provides that missing semantic layer. The `Ledger` could be implemented using a distributed blockchain (like Ethereum), a centralized database (in a trusted enterprise environment), or other distributed ledger technologies, depending on the specific application's requirements for decentralization and security.
+
 ## 5. Who Is This For?
 
 *   **OS & Platform Developers:** To build next-generation "agent-native" operating systems.
