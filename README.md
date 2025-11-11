@@ -1,5 +1,7 @@
 # W3C Agent Semantic Communication Community Group: AI Agent Ontology
 
+(Note: This repository will be migrated to a dedicated GitHub organization once the Community Group is formally activated.)
+
 This draft repository contains the formal ontology for AI Agent interoperability, security, and communication, developed as part of the **W3C Agent Semantic Communication Community Group** work. It provides a machine-readable, logically consistent framework for defining agents, their capabilities, and the rules governing their interactions.
 
 ## Vision and Goals
