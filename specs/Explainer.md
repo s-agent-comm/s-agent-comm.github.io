@@ -415,3 +415,30 @@ By encapsulating our ontology's concepts, these higher-level protocols gain imme
 ## 11. Get Involved
 
 This is a community effort to build the foundation for the next generation of AI. To learn more and participate, please see our project's `README.md` and join the discussion.
+
+Appendix – Semantic ISA and Future Compute Backends (Informative Only)
+
+Although the scope of this Community Group focuses strictly on interaction semantics, not hardware or execution models, it is important to acknowledge one long-term architectural implication.
+
+A mature semantic layer naturally behaves like an Instruction Set Architecture (ISA) for agent behavior. In modern AI systems, large-scale inference and planning are increasingly executed on GPU-class accelerators.
+
+Thus, in future implementations, a possible compilation pipeline emerges:
+
+```
+Semantic Act (Intent / Delegation)
+     ↓
+Semantic IR (Narrative / Constraint Graph)
+     ↓
+Execution Plan
+     ↓
+Device-level Dispatch (CPU / GPU kernels)
+```
+
+In this view:
+
+- The ontology defines the semantic instructions.
+- Implementations may compile these instructions into an intermediate representation (IR).
+- The IR may then be lowered into optimized compute graphs executed on GPUs or other accelerators.
+
+This appendix is non-normative. It simply illustrates that the semantic layer defined by this CG is compatible with deeper compute stacks, and may in future become part of a broader semantic-aware compute pipeline.
+
