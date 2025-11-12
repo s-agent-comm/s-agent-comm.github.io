@@ -90,7 +90,7 @@ This Community Group intentionally aligns with, but does not replace, work in th
 - W3C Conversational Interfaces discussions
 - Agent MCP (Model Context Protocol)
 - A2A protocols (agent-to-agent protocols)
-- ETH 8004 Resource Model (hardware/software resources)
+- ERC 8004 (The Decentralized Trust Layer for Agents)
 
 This group focuses on the semantic layer above these systems. For example, while ETH 8004 describes OS resources, this group describes semantic resources and delegation semantics.
 
