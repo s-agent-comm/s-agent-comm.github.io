@@ -40,13 +40,13 @@ Our ontology leverages foundational **Semantic Web technologies** such as RDF (R
 
 However, it is crucial to clarify that **this project does not deal with general agent knowledge representation or reasoning about the world's facts.** Our focus is exclusively on **interaction semantics**: how agents communicate, delegate authority, and establish accountability in a verifiable manner. We provide the language for *how* agents interact, not *what* they know about the world or *how* they reason internally. This deliberate decoupling is a critical design feature: by avoiding strong linkages to any specific knowledge, legal, or cultural domain, the ontology remains a neutral and universal framework, ensuring maximum interoperability across diverse regulatory and cultural contexts.
 
-### The "Content," Not the "Container"
+### The "Content," Not the "Container" – And Not the "Contract" Itself
 
-A critical principle of this ontology is the separation of concerns. It standardizes the **semantic payload**—the meaning of the message itself—not the transport protocol used to send it.
+A critical principle of this ontology is the separation of concerns. It standardizes the **semantic payload**—the meaning of the message itself—not the transport protocol used to send it. Crucially, **this ontology also does not define the concept of a "contract" itself.**
 
 Think of it like a legal contract. The contract's meaning (the parties, terms, and signatures) is the same whether it's sent by postal mail, fax, or as a PDF email attachment. The delivery mechanism (the "container") is separate from the legally binding content.
 
-Similarly, our ontology defines the "digital contract" for agent interactions. It can be transmitted over any network protocol (HTTP, WebSockets, etc.) and even used in non-digital contexts. We focus on standardizing the verifiable "what" and "why," leaving developers free to choose the "how."
+Similarly, our ontology defines the "digital contract" for agent interactions. It can be transmitted over any network protocol (HTTP, WebSockets, etc.) and even used in non-digital contexts. We focus on standardizing the verifiable "what" and "why," leaving developers free to choose the "how." **The specific form of the underlying "contract"—be it a traditional paper agreement, a digital smart contract, or even an implicit verbal understanding—is left entirely to the implementation layer, maximizing social and legal applicability.**
 
 ## 3. A Simple Use Case: Alice's Automated Trip
 
