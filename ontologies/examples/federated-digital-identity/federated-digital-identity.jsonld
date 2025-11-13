@@ -153,7 +153,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Provide Verifiable Credential containing primary citizen identity and Japanese Tax Identification Number for FinTech onboarding."
+        "@id": "cap:ProvideJPCredentialCapability"
       }
     ]
   },
@@ -187,17 +187,26 @@
       {
         "@id": "_:nb8433991e336480e9edc0ceab863bf60b5"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:KYCVerificationCapability"
+      },
+      {
+        "@id": "cap:AMLComplianceCapability"
+      },
+      {
+        "@id": "cap:VPValidationCapability"
+      },
+      {
+        "@id": "cap:AccountProvisioningCapability"
+      }
     ]
   },
   {
     "@id": "_:nb8433991e336480e9edc0ceab863bf60b5",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nb8433991e336480e9edc0ceab863bf60b8"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -248,26 +257,6 @@
     ]
   },
   {
-    "@id": "_:nb8433991e336480e9edc0ceab863bf60b8",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "KYC Verification"
-      },
-      {
-        "@value": "AML Compliance"
-      },
-      {
-        "@value": "Verifiable Presentation Validation"
-      },
-      {
-        "@value": "Account Provisioning"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#JPMynumberWalletAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -281,17 +270,23 @@
       {
         "@id": "_:nb8433991e336480e9edc0ceab863bf60b9"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:CredentialStorageCapability"
+      },
+      {
+        "@id": "cap:VCIssuanceCapability"
+      },
+      {
+        "@id": "cap:SelectiveDisclosureCapability"
+      }
     ]
   },
   {
     "@id": "_:nb8433991e336480e9edc0ceab863bf60b9",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nb8433991e336480e9edc0ceab863bf60b12"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -342,23 +337,6 @@
     ]
   },
   {
-    "@id": "_:nb8433991e336480e9edc0ceab863bf60b12",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Credential Storage"
-      },
-      {
-        "@value": "Verifiable Credential Issuance"
-      },
-      {
-        "@value": "Selective Disclosure"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/federated-digital-identity#PersonalFinanceAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -372,17 +350,26 @@
       {
         "@id": "_:nb8433991e336480e9edc0ceab863bf60b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:AccountOnboardingCapability"
+      },
+      {
+        "@id": "cap:IdentityVerificationOrchestrationCapability"
+      },
+      {
+        "@id": "cap:CredentialAggregationCapability"
+      },
+      {
+        "@id": "cap:VPGenerationCapability"
+      }
     ]
   },
   {
     "@id": "_:nb8433991e336480e9edc0ceab863bf60b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nb8433991e336480e9edc0ceab863bf60b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -429,26 +416,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:kenji-user-id"
-      }
-    ]
-  },
-  {
-    "@id": "_:nb8433991e336480e9edc0ceab863bf60b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Account Onboarding"
-      },
-      {
-        "@value": "Identity Verification Orchestration"
-      },
-      {
-        "@value": "Credential Aggregation"
-      },
-      {
-        "@value": "Verifiable Presentation Generation"
       }
     ]
   },
@@ -554,7 +521,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Provide Verifiable Credential containing Taiwanese Alien Resident Certificate and current residential address for FinTech onboarding."
+        "@id": "cap:ProvideTWCredentialCapability"
       }
     ]
   },
@@ -609,17 +576,23 @@
       {
         "@id": "_:nb8433991e336480e9edc0ceab863bf60b13"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:CredentialStorageCapability"
+      },
+      {
+        "@id": "cap:VCIssuanceCapability"
+      },
+      {
+        "@id": "cap:SelectiveDisclosureCapability"
+      }
     ]
   },
   {
     "@id": "_:nb8433991e336480e9edc0ceab863bf60b13",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nb8433991e336480e9edc0ceab863bf60b16"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -669,21 +642,5 @@
       }
     ]
   },
-  {
-    "@id": "_:nb8433991e336480e9edc0ceab863bf60b16",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Credential Storage"
-      },
-      {
-        "@value": "Verifiable Credential Issuance"
-      },
-      {
-        "@value": "Selective Disclosure"
-      }
-    ]
-  }
+
 ]

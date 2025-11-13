@@ -13,17 +13,23 @@
       {
         "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:PrecisionCuttingCapability"
+      },
+      {
+        "@id": "cap:SutureTissueCapability"
+      },
+      {
+        "@id": "cap:LaserAblationCapability"
+      }
     ]
   },
   {
     "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -65,23 +71,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:metro-health-hospital"
-      }
-    ]
-  },
-  {
-    "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Perform 0.1mm precision cutting"
-      },
-      {
-        "@value": "Suture tissue"
-      },
-      {
-        "@value": "Laser ablation"
       }
     ]
   },
@@ -131,17 +120,23 @@
       {
         "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b9"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:RiskAssessmentCapability"
+      },
+      {
+        "@id": "cap:PolicyUnderwritingCapability"
+      },
+      {
+        "@id": "cap:CredentialValidationCapability"
+      }
     ]
   },
   {
     "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b9",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b12"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -183,23 +178,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:web:ai-assurance.com"
-      }
-    ]
-  },
-  {
-    "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b12",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Risk Assessment"
-      },
-      {
-        "@value": "Policy Underwriting"
-      },
-      {
-        "@value": "Verifiable Credential Validation"
       }
     ]
   },
@@ -267,7 +245,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Perform a 5cm linear incision at coordinates (X,Y,Z), depth 2mm, speed <= 1mm/s."
+        "@id": "cap:PerformSurgicalIncisionCapability"
       }
     ]
   },
@@ -332,17 +310,23 @@
       {
         "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b5"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:AICapabilityVerificationCapability"
+      },
+      {
+        "@id": "cap:SafetyConstraintTestingCapability"
+      },
+      {
+        "@id": "cap:CertificateIssuanceCapability"
+      }
     ]
   },
   {
     "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b5",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b8"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -389,23 +373,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:web:globalcert.com"
-      }
-    ]
-  },
-  {
-    "@id": "_:n267d1fb469c44592b1ca07c1fa5948e5b8",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "AI Capability Verification"
-      },
-      {
-        "@value": "Safety Constraint Testing"
-      },
-      {
-        "@value": "Verifiable Certificate Issuance"
       }
     ]
   },

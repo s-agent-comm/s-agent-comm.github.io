@@ -13,17 +13,17 @@
       {
         "@id": "_:nfd7971e1bbbf4505a6dafc147c41f159b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:EUDIWalletManagementCapability"
+      }
     ]
   },
   {
     "@id": "_:nfd7971e1bbbf4505a6dafc147c41f159b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nfd7971e1bbbf4505a6dafc147c41f159b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -85,17 +85,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:owner"
-      }
-    ]
-  },
-  {
-    "@id": "_:nfd7971e1bbbf4505a6dafc147c41f159b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "EUDI Wallet Management"
       }
     ]
   },

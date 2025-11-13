@@ -34,16 +34,6 @@
       }
     },
 
-    "capabilities": {
-      "type": "object",
-      "description": "Declared capabilities and skills for an Agent.",
-      "properties": {
-          "skills": {
-              "type": "array",
-              "items": { "type": "string" }
-          }
-      }
-    },
 
     "operationalProfile": {
       "type": "object",

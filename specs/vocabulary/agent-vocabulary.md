@@ -6,12 +6,6 @@ Defines the structure and properties of an AI Agent, including its identity, pur
 
 ## Classes
 
-### `CapabilityBundle`
-
-**IRI:** `https://ns.slashlife.ai/agent/agent#CapabilityBundle`
-
-Declared capabilities and skills for an Agent.
-
 ### `OperationalProfile`
 
 **IRI:** `https://ns.slashlife.ai/agent/agent#OperationalProfile`

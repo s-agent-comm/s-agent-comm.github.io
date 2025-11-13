@@ -23,8 +23,8 @@
     a owl:Ontology ;
     dct:title "Agent Ontology" ;
     dct:description "Defines the structure and properties of an AI Agent, including its identity, purpose, capabilities, and operational aspects." ;
-    dct:modified "2025-11-10"^^xsd:date ;
-    owl:versionInfo "0.2.0" ;
+    dct:modified "2025-11-13"^^xsd:date ;
+    owl:versionInfo "0.3.0" ;
     owl:imports <https://ns.slashlife.ai/agent/core> ;
     owl:imports <https://ns.slashlife.ai/agent/identity> .
 
@@ -64,21 +64,7 @@
     rdfs:label "owner" .
 
 
-#################################################################
-#   Capability Model (linked to capability ontology)
-#################################################################
 
-:CapabilityBundle a owl:Class ;
-    rdfs:label "CapabilityBundle" ;
-    rdfs:comment "Declared capabilities and skills for an Agent." .
-
-:capabilities a owl:ObjectProperty ;
-    rdfs:domain core:Agent ;
-    rdfs:range :CapabilityBundle .
-
-:skill a owl:DatatypeProperty ;
-    rdfs:domain :CapabilityBundle ;
-    rdfs:range xsd:string .
 
 
 #################################################################

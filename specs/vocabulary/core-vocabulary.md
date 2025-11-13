@@ -34,7 +34,7 @@ A produced output or result generated through agent execution.
 
 **IRI:** `https://ns.slashlife.ai/agent/core#Capability`
 
-A describable functional competence or operational capacity of an Agent.
+A high-level, declarative, and semantically rich description of an Agent's functional competence or operational capacity. This class is further specialized in the Capability Ontology to distinguish between Capabilities and Skills.
 
 ### `Delegation`
 

@@ -53,7 +53,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Create one Instagram Reel promoting our new 'Graceful Steps' dance shoes in exchange for a payment of 200 USD."
+        "@id": "cap:CreateInstagramReelCapability"
       }
     ]
   },
@@ -90,7 +90,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Create and post an Instagram Story using VideoClip_1 and VideoClip_2, add the song 'Obsesión', and tag @RhythmFest and @DancePartner."
+        "@id": "cap:CreateAndPostInstagramStoryCapability"
       }
     ]
   },
@@ -137,7 +137,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Register me for the Rhythm Fest and process payment of 30 USD."
+        "@id": "cap:RegisterForEventCapability"
       }
     ]
   },
@@ -344,7 +344,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Recommend an outfit for the 'Rhythm Fest' (theme: 'White Party'), based on my style profile (elegant, modern)."
+        "@id": "cap:RecommendOutfitCapability"
       }
     ]
   },
@@ -362,17 +362,23 @@
       {
         "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b5"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:EventManagementCapability"
+      },
+      {
+        "@id": "cap:TicketSalesCapability"
+      },
+      {
+        "@id": "cap:PromotionCapability"
+      }
     ]
   },
   {
     "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b5",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b8"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -419,23 +425,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:web:rhythmfest.com"
-      }
-    ]
-  },
-  {
-    "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b8",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Event Management"
-      },
-      {
-        "@value": "Ticket Sales"
-      },
-      {
-        "@value": "Promotion"
       }
     ]
   },
@@ -554,17 +543,29 @@
       {
         "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:SensualBachataCapability"
+      },
+      {
+        "@id": "cap:BachataFusionCapability"
+      },
+      {
+        "@id": "cap:LeadingCapability"
+      },
+      {
+        "@id": "cap:FollowingCapability"
+      },
+      {
+        "@id": "cap:AdvancedLevelCapability"
+      }
     ]
   },
   {
     "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -611,29 +612,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:sofia-dancer"
-      }
-    ]
-  },
-  {
-    "@id": "_:n27eec7942fa74b7bb7ae072e7e01b3b3b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Sensual Bachata"
-      },
-      {
-        "@value": "Bachata Fusion"
-      },
-      {
-        "@value": "Leading"
-      },
-      {
-        "@value": "Following"
-      },
-      {
-        "@value": "Level: Advanced"
       }
     ]
   },

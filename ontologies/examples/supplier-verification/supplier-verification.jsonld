@@ -13,17 +13,20 @@
       {
         "@id": "_:n525b4e780bbe46a9b84441598982a87db1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:BusinessLicenseVerificationCapability"
+      },
+      {
+        "@id": "cap:TaxComplianceVerificationCapability"
+      }
     ]
   },
   {
     "@id": "_:n525b4e780bbe46a9b84441598982a87db1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n525b4e780bbe46a9b84441598982a87db4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -75,20 +78,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:owner"
-      }
-    ]
-  },
-  {
-    "@id": "_:n525b4e780bbe46a9b84441598982a87db4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Business License Verification"
-      },
-      {
-        "@value": "Tax Compliance Verification"
       }
     ]
   },

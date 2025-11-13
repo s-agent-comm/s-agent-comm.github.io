@@ -16,7 +16,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Task A"
+        "@id": "cap:TaskACapability"
       }
     ]
   },
@@ -59,7 +59,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Sub-Task A.1"
+        "@id": "cap:SubTaskA1Capability"
       }
     ]
   },

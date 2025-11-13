@@ -11,13 +11,12 @@
     "objective": "To perform automated data processing tasks based on delegated authority.",
     "owner": "did:org:12345"
   },
-  "capabilities": {
-    "skills": [
-      "cap:fetchData",
-      "cap:processData",
-      "cap:generateReport"
-    ]
-  },
+  "hasCapability": [
+    {
+      "id": "cap:ExampleCapability",
+      "type": "cap:Capability"
+    }
+  ],
   "lifecycleManagement": {
     "state": "active",
     "genesisRecord": {

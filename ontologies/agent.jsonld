@@ -1,21 +1,5 @@
 [
   {
-    "@id": "https://ns.slashlife.ai/agent/agent#CapabilityBundle",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@value": "Declared capabilities and skills for an Agent."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "CapabilityBundle"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/lifecycle#LifecycleRecord",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -125,7 +109,7 @@
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2025-11-10"
+        "@value": "2025-11-13"
       }
     ],
     "http://purl.org/dc/terms/title": [
@@ -143,7 +127,7 @@
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
-        "@value": "0.2.0"
+        "@value": "0.3.0"
       }
     ]
   },
@@ -501,22 +485,6 @@
     ]
   },
   {
-    "@id": "https://ns.slashlife.ai/agent/agent#skill",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/agent#interface",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -719,20 +687,3 @@
       }
     ]
   },
-  {
-    "@id": "https://ns.slashlife.ai/agent/agent#capabilities",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://ns.slashlife.ai/agent/core#Agent"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-      }
-    ]
-  }
-]

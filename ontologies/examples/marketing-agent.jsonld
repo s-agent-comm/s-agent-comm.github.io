@@ -1,7 +1,6 @@
 {
   "@context": [
     "https://ns.slashlife.ai/agent/context/agent.jsonld",
-    "https://ns.slashlife.ai/agent/context/capability.jsonld",
     "https://ns.slashlife.ai/agent/context/delegation.jsonld",
     "https://ns.slashlife.ai/agent/context/ledger.jsonld"
   ],
@@ -10,14 +9,16 @@
   "title": "marketing-agent",
   "version": "1.0.0",
 
-  "capabilities": {
-    "functions": [
-      { "id": "draft_copy", "description": "Generate marketing copy" },
-      { "id": "schedule_post", "description": "Plan and schedule content" }
-    ],
-    "skills": ["Content Writing", "Brand Analysis", "SEO Optimization"]
-  },
-
+  "hasCapability": [
+    {
+      "id": "cap:DraftCopyCapability",
+      "type": "cap:Capability"
+    },
+    {
+      "id": "cap:SchedulePostCapability",
+      "type": "cap:Capability"
+    }
+  ],
   "purpose_and_role": {
     "objective": "Support marketing pipeline for cross-border campaigns",
     "owner": "did:key:z6MkCompanyAdmin001"

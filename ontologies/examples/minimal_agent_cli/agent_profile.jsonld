@@ -6,19 +6,10 @@
     "did": "did:example:OntologyCLI",
     "title": "Minimal Ontology CLI Agent"
   },
-  "capabilities": {
-    "@type": "CapabilityBundle",
-    "skill": [
-      {
-        "@id": "capability:WriteFile",
-        "@type": "Capability",
-        "name": "WriteFile",
-        "description": "Writes specified content to a local file at a given path.",
-        "parameters": {
-          "filePath": "string",
-          "content": "string"
-        }
-      }
-    ]
-  }
+  "hasCapability": [
+    {
+      "id": "cap:WriteFileCapability",
+      "type": "cap:Capability"
+    }
+  ]
 }

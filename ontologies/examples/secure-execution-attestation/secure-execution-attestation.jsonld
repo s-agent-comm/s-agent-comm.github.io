@@ -29,17 +29,20 @@
       {
         "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:SoftwareUpdateDeploymentCapability"
+      },
+      {
+        "@id": "cap:RemoteAttestationVerificationCapability"
+      }
     ]
   },
   {
     "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -86,20 +89,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@id": "https://ns.slashlife.ai/agent/examples/secure-execution-attestation#AutoCorpDID"
-      }
-    ]
-  },
-  {
-    "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Software Update Deployment"
-      },
-      {
-        "@value": "Remote Attestation Verification"
       }
     ]
   },
@@ -170,17 +159,20 @@
       {
         "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b5"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:HardwareAttestationGenerationCapability"
+      },
+      {
+        "@id": "cap:SecureBootMeasurementReportingCapability"
+      }
     ]
   },
   {
     "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b5",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b8"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -227,20 +219,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@id": "https://ns.slashlife.ai/agent/examples/secure-execution-attestation#VehicleDID"
-      }
-    ]
-  },
-  {
-    "@id": "_:ne7a8787798ea41a4b8e914a707be7e09b8",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Hardware Attestation Generation"
-      },
-      {
-        "@value": "Secure Boot Measurement Reporting"
       }
     ]
   },
@@ -398,7 +376,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Provide a secure attestation of the boot chain, signed by the Hardware Root of Trust."
+        "@id": "cap:ProvideSecureAttestationCapability"
       }
     ]
   },

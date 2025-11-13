@@ -13,17 +13,29 @@
       {
         "@id": "_:n6dba1514c4954c178437c840d5e42c3bb1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:StartWorkoutCapability"
+      },
+      {
+        "@id": "cap:StopWorkoutCapability"
+      },
+      {
+        "@id": "cap:SetSpeedCapability"
+      },
+      {
+        "@id": "cap:SetInclineCapability"
+      },
+      {
+        "@id": "cap:GetWorkoutDataCapability"
+      }
     ]
   },
   {
     "@id": "_:n6dba1514c4954c178437c840d5e42c3bb1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n6dba1514c4954c178437c840d5e42c3bb4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -85,29 +97,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:user-alice-123"
-      }
-    ]
-  },
-  {
-    "@id": "_:n6dba1514c4954c178437c840d5e42c3bb4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "StartWorkout"
-      },
-      {
-        "@value": "StopWorkout"
-      },
-      {
-        "@value": "SetSpeed"
-      },
-      {
-        "@value": "SetIncline"
-      },
-      {
-        "@value": "GetWorkoutData"
       }
     ]
   },

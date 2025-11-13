@@ -13,17 +13,20 @@
       {
         "@id": "_:n5314c73d016d4091bff2f709a154a442b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:StablecoinTransferCapability"
+      },
+      {
+        "@id": "cap:TransactionRecordingCapability"
+      }
     ]
   },
   {
     "@id": "_:n5314c73d016d4091bff2f709a154a442b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n5314c73d016d4091bff2f709a154a442b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -80,20 +83,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:owner"
-      }
-    ]
-  },
-  {
-    "@id": "_:n5314c73d016d4091bff2f709a154a442b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Stablecoin Transfer"
-      },
-      {
-        "@value": "Transaction Recording"
       }
     ]
   },

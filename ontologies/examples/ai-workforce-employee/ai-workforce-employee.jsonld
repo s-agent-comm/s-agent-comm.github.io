@@ -13,17 +13,20 @@
       {
         "@id": "_:nbe8f1e4cb8c143aa8028555a009ba0f0b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:DataAnalysisCapability"
+      },
+      {
+        "@id": "cap:ReportGenerationCapability"
+      }
     ]
   },
   {
     "@id": "_:nbe8f1e4cb8c143aa8028555a009ba0f0b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nbe8f1e4cb8c143aa8028555a009ba0f0b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -75,20 +78,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:organization"
-      }
-    ]
-  },
-  {
-    "@id": "_:nbe8f1e4cb8c143aa8028555a009ba0f0b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Data Analysis"
-      },
-      {
-        "@value": "Report Generation"
       }
     ]
   },

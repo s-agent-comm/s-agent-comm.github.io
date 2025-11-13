@@ -39,17 +39,20 @@
       {
         "@id": "_:n46743911cfc045089e727623c665d5e5b17"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:CurrencyExchangeCapability"
+      },
+      {
+        "@id": "cap:RateDiscoveryCapability"
+      }
     ]
   },
   {
     "@id": "_:n46743911cfc045089e727623c665d5e5b17",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n46743911cfc045089e727623c665d5e5b20"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -100,20 +103,6 @@
     ]
   },
   {
-    "@id": "_:n46743911cfc045089e727623c665d5e5b20",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Currency Exchange"
-      },
-      {
-        "@value": "Rate Discovery"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/supplier-verification-cross-border-payment#ProcurementAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -127,17 +116,20 @@
       {
         "@id": "_:n46743911cfc045089e727623c665d5e5b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:ProcurementInitiationCapability"
+      },
+      {
+        "@id": "cap:SupplierSourcingCapability"
+      }
     ]
   },
   {
     "@id": "_:n46743911cfc045089e727623c665d5e5b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n46743911cfc045089e727623c665d5e5b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -188,20 +180,6 @@
     ]
   },
   {
-    "@id": "_:n46743911cfc045089e727623c665d5e5b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Procurement Initiation"
-      },
-      {
-        "@value": "Supplier Sourcing"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/supplier-verification-cross-border-payment#FinanceAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -215,17 +193,23 @@
       {
         "@id": "_:n46743911cfc045089e727623c665d5e5b13"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:PaymentProcessingCapability"
+      },
+      {
+        "@id": "cap:CurrencyExchangeOrchestrationCapability"
+      },
+      {
+        "@id": "cap:LedgerRecordingCapability"
+      }
     ]
   },
   {
     "@id": "_:n46743911cfc045089e727623c665d5e5b13",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n46743911cfc045089e727623c665d5e5b16"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -276,23 +260,6 @@
     ]
   },
   {
-    "@id": "_:n46743911cfc045089e727623c665d5e5b16",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Payment Processing"
-      },
-      {
-        "@value": "Currency Exchange Orchestration"
-      },
-      {
-        "@value": "Ledger Recording"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/supplier-verification-cross-border-payment#SupplierManagementAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -306,17 +273,23 @@
       {
         "@id": "_:n46743911cfc045089e727623c665d5e5b5"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:SupplierOnboardingCapability"
+      },
+      {
+        "@id": "cap:ContractManagementCapability"
+      },
+      {
+        "@id": "cap:PaymentOrchestrationCapability"
+      }
     ]
   },
   {
     "@id": "_:n46743911cfc045089e727623c665d5e5b5",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n46743911cfc045089e727623c665d5e5b8"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -367,23 +340,6 @@
     ]
   },
   {
-    "@id": "_:n46743911cfc045089e727623c665d5e5b8",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Supplier Onboarding"
-      },
-      {
-        "@value": "Contract Management"
-      },
-      {
-        "@value": "Payment Orchestration"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/supplier-verification-cross-border-payment#VerificationAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -397,17 +353,23 @@
       {
         "@id": "_:n46743911cfc045089e727623c665d5e5b9"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:CredentialVerificationCapability"
+      },
+      {
+        "@id": "cap:ComplianceCheckingCapability"
+      },
+      {
+        "@id": "cap:TEEAttestationCapability"
+      }
     ]
   },
   {
     "@id": "_:n46743911cfc045089e727623c665d5e5b9",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n46743911cfc045089e727623c665d5e5b12"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -458,23 +420,6 @@
     ]
   },
   {
-    "@id": "_:n46743911cfc045089e727623c665d5e5b12",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Credential Verification"
-      },
-      {
-        "@value": "Compliance Checking"
-      },
-      {
-        "@value": "TEE Attestation"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/supplier-verification-cross-border-payment#PaymentAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -488,17 +433,20 @@
       {
         "@id": "_:n46743911cfc045089e727623c665d5e5b21"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:SEPATransferCapability"
+      },
+      {
+        "@id": "cap:PaymentConfirmationCapability"
+      }
     ]
   },
   {
     "@id": "_:n46743911cfc045089e727623c665d5e5b21",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n46743911cfc045089e727623c665d5e5b24"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -549,20 +497,6 @@
     ]
   },
   {
-    "@id": "_:n46743911cfc045089e727623c665d5e5b24",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "SEPA Transfer"
-      },
-      {
-        "@value": "Payment Confirmation"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/supplier-verification-cross-border-payment#Delegation_ProcurementToSupplierMgmt",
     "@type": [
       "https://ns.slashlife.ai/agent/delegation#Delegation"
@@ -579,7 +513,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Verify new supplier Berlin Precision Parts and orchestrate payment of 50,000 EUR for components."
+        "@id": "cap:VerifySupplierAndOrchestratePaymentCapability"
       }
     ]
   }

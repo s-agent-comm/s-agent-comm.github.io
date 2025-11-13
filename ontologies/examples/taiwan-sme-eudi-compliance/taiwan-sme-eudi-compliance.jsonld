@@ -4,32 +4,28 @@
     "@type": [
       "https://ns.slashlife.ai/agent/capability#Capability"
     ],
-    "https://ns.slashlife.ai/agent/capability#description": [
+    "https://ns.slashlife.ai/agent/capability#capabilityExpression": [
       {
         "@value": "Submit corporate filings through EU gateway using EUDI-backed signatures."
       }
     ],
-    "https://ns.slashlife.ai/agent/capability#id": [
+    "https://ns.slashlife.ai/agent/capability#hasSkill": [
       {
-        "@value": "crossborder-filing"
+        "@id": "cap:CrossBorderFilingSkill"
       }
     ]
   },
-  {
-    "@id": "https://ns.slashlife.ai/agent/examples#RetrieveEUDICredential",
-    "@type": [
-      "https://ns.slashlife.ai/agent/capability#Capability"
-    ],
-    "https://ns.slashlife.ai/agent/capability#description": [
+    "https://ns.slashlife.ai/agent/capability#capabilityExpression": [
       {
         "@value": "Fetch verifiable credentials issued by EU authorities."
       }
     ],
-    "https://ns.slashlife.ai/agent/capability#id": [
+    "https://ns.slashlife.ai/agent/capability#hasSkill": [
       {
-        "@value": "retrieve-credential"
+        "@id": "cap:RetrieveEUDICredentialSkill"
       }
     ]
+
   },
   {
     "@id": "https://ns.slashlife.ai/agent/examples#LedgerEntry2",
@@ -63,16 +59,17 @@
     "@type": [
       "https://ns.slashlife.ai/agent/capability#Capability"
     ],
-    "https://ns.slashlife.ai/agent/capability#description": [
+    "https://ns.slashlife.ai/agent/capability#capabilityExpression": [
       {
         "@value": "Submit KYC/AML documents through EUDI Wallet interfaces."
       }
     ],
-    "https://ns.slashlife.ai/agent/capability#id": [
+    "https://ns.slashlife.ai/agent/capability#hasSkill": [
       {
-        "@value": "submit-kyc"
+        "@id": "cap:SubmitKYCSkill"
       }
     ]
+
   },
   {
     "@id": "https://ns.slashlife.ai/agent/examples#EUDIWalletIdentity",
@@ -188,11 +185,6 @@
     "@type": [
       "https://ns.slashlife.ai/agent/identity#Identity"
     ],
-    "https://ns.slashlife.ai/agent/identity#capabilities": [
-      {
-        "@value": "stable-value-transfer"
-      }
-    ],
     "https://ns.slashlife.ai/agent/identity#did": [
       {
         "@value": "did:eth:0xabc123456def"
@@ -214,14 +206,14 @@
     "@type": [
       "https://ns.slashlife.ai/agent/capability#Capability"
     ],
-    "https://ns.slashlife.ai/agent/capability#description": [
+    "https://ns.slashlife.ai/agent/capability#capabilityExpression": [
       {
         "@value": "Execute stablecoin settlement for cross-border services (did:eth / did:ebsi)."
       }
     ],
-    "https://ns.slashlife.ai/agent/capability#id": [
+    "https://ns.slashlife.ai/agent/capability#hasSkill": [
       {
-        "@value": "settlement"
+        "@id": "cap:StablecoinPaymentSkill"
       }
     ]
   },
@@ -322,7 +314,16 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#scope": [
       {
-        "@value": "EU onboarding, EUDI Wallet transactions, filings, KYC handling"
+        "@id": "cap:EUOnboardingCapability"
+      },
+      {
+        "@id": "cap:EUDIWalletTransactionsCapability"
+      },
+      {
+        "@id": "cap:FilingsCapability"
+      },
+      {
+        "@id": "cap:KYCHandlingCapability"
       }
     ],
     "https://ns.slashlife.ai/agent/delegation#validFrom": [

@@ -47,7 +47,6 @@
 
     "hasIdentity": "agent:hasIdentity",
     "purpose_and_role": "agent:purposeAndRole",
-    "capabilities": "agent:capabilities",
     "operational_triggers_and_io": "agent:operationalTriggersAndIO",
     "system_integration_and_dependencies": "agent:systemIntegrationAndDependencies",
     "economic_interfaces": "agent:economicInterfaces",
@@ -97,18 +96,6 @@
     "delegationScope": {
       "@id": "del:delegationScope",
       "@type": "@id"
-    },
-
-
-    /* ==== Capability expansions ==== */
-
-    "function": {
-      "@id": "cap:function",
-      "@type": "xsd:string"
-    },
-    "skill": {
-      "@id": "cap:skill",
-      "@type": "xsd:string"
     },
 
 

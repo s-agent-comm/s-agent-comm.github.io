@@ -13,17 +13,23 @@
       {
         "@id": "_:nad7ee6050bcd4178a5ecf2db85844b16b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:TaxCalculationCapability"
+      },
+      {
+        "@id": "cap:TaxFormPreparationCapability"
+      },
+      {
+        "@id": "cap:TaxFormSubmissionCapability"
+      }
     ]
   },
   {
     "@id": "_:nad7ee6050bcd4178a5ecf2db85844b16b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nad7ee6050bcd4178a5ecf2db85844b16b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -75,23 +81,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:owner"
-      }
-    ]
-  },
-  {
-    "@id": "_:nad7ee6050bcd4178a5ecf2db85844b16b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Tax Calculation"
-      },
-      {
-        "@value": "Tax Form Preparation"
-      },
-      {
-        "@value": "Tax Form Submission"
       }
     ]
   },

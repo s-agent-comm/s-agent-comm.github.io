@@ -11,9 +11,9 @@
     "objective": "To demonstrate the basic structure of an agent definition.",
     "owner": "did:human:alice"
   },
-  "capabilities": {
-    "skills": [
-      "ontology:ExampleCapability"
-    ]
-  }
-}
+  "hasCapability": [
+    {
+      "id": "cap:ExampleCapability",
+      "type": "cap:Capability"
+    }
+  ],

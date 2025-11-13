@@ -13,17 +13,23 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb21"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:DigitalMarketingCapability"
+      },
+      {
+        "@id": "cap:CampaignManagementCapability"
+      },
+      {
+        "@id": "cap:SocialMediaManagementCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb21",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb24"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -74,23 +80,6 @@
     ]
   },
   {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb24",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Digital Marketing"
-      },
-      {
-        "@value": "Campaign Management"
-      },
-      {
-        "@value": "Social Media Management"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/smart-thermostat-obm-odm-oem#GlobalTecheCommerceAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -104,17 +93,26 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb25"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:OnlineSalesCapability"
+      },
+      {
+        "@id": "cap:PaymentProcessingCapability"
+      },
+      {
+        "@id": "cap:OrderFulfillmentCapability"
+      },
+      {
+        "@id": "cap:LogisticsManagementCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb25",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb28"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -165,26 +163,6 @@
     ]
   },
   {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb28",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Online Sales"
-      },
-      {
-        "@value": "Payment Processing"
-      },
-      {
-        "@value": "Order Fulfillment"
-      },
-      {
-        "@value": "Logistics Management"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/smart-thermostat-obm-odm-oem#ConsumerPurchaseIntent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Intent"
@@ -227,7 +205,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Strictly manufacture 100,000 CL-T-200 thermostats as per ConnectedLiving's design #CL-SPEC-2025, with 99.8% minimum yield."
+        "@id": "cap:ManufactureThermostatsOEMCapability"
       }
     ]
   },
@@ -317,7 +295,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Manage global supply chain and component procurement for InnovateHome production."
+        "@id": "cap:ManageGlobalSupplyChainCapability"
       }
     ]
   },
@@ -335,17 +313,23 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb17"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:BrandDevelopmentCapability"
+      },
+      {
+        "@id": "cap:MarketAnalysisCapability"
+      },
+      {
+        "@id": "cap:StrategicPlanningCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb17",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb20"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -396,23 +380,6 @@
     ]
   },
   {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb20",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Brand Development"
-      },
-      {
-        "@value": "Market Analysis"
-      },
-      {
-        "@value": "Strategic Planning"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/smart-thermostat-obm-odm-oem#OBM_Delegation_BrandToMarketing",
     "@type": [
       "https://ns.slashlife.ai/agent/delegation#Delegation"
@@ -429,7 +396,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Execute global digital marketing campaigns for InnovateHome smart thermostats."
+        "@id": "cap:ExecuteDigitalMarketingCampaignsCapability"
       }
     ]
   },
@@ -447,17 +414,23 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb9"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:ManufacturingExecutionCapability"
+      },
+      {
+        "@id": "cap:QualityControlCapability"
+      },
+      {
+        "@id": "cap:AssemblyCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb9",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb12"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -504,23 +477,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:innovatetech-taiwan"
-      }
-    ]
-  },
-  {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb12",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Manufacturing Execution"
-      },
-      {
-        "@value": "Quality Control"
-      },
-      {
-        "@value": "Assembly"
       }
     ]
   },
@@ -685,17 +641,26 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb13"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:ProductDesignCapability"
+      },
+      {
+        "@id": "cap:PrototypingCapability"
+      },
+      {
+        "@id": "cap:PerformanceOptimizationCapability"
+      },
+      {
+        "@id": "cap:SmartEnergyEfficientThermostatDesignCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb13",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb16"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -746,26 +711,6 @@
     ]
   },
   {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb16",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Product Design"
-      },
-      {
-        "@value": "Prototyping"
-      },
-      {
-        "@value": "Performance Optimization"
-      },
-      {
-        "@value": "Smart Energy-Efficient Thermostat Design"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/smart-thermostat-obm-odm-oem#eCommerceOrderConfirmation",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Artifact"
@@ -798,7 +743,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Manufacture 500,000 InnovateHome smart thermostats for own inventory."
+        "@id": "cap:ManufactureThermostatsOBMCapability"
       }
     ]
   },
@@ -819,7 +764,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Manufacture 200,000 IT-T-300 thermostats based on InnovateTech's design #IT-SPEC-300, with ConnectedLiving EcoSense branding."
+        "@id": "cap:ManufactureThermostatsODMCapability"
       }
     ]
   },
@@ -863,17 +808,23 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb29"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:SupplierManagementCapability"
+      },
+      {
+        "@id": "cap:InventoryManagementCapability"
+      },
+      {
+        "@id": "cap:LogisticsCoordinationCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb29",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb32"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -924,23 +875,6 @@
     ]
   },
   {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb32",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Supplier Management"
-      },
-      {
-        "@value": "Inventory Management"
-      },
-      {
-        "@value": "Logistics Coordination"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/smart-thermostat-obm-odm-oem#SmartHomeProcurementAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -954,17 +888,23 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:SupplierSourcingCapability"
+      },
+      {
+        "@id": "cap:ContractNegotiationCapability"
+      },
+      {
+        "@id": "cap:OrderPlacementCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -1015,23 +955,6 @@
     ]
   },
   {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Supplier Sourcing"
-      },
-      {
-        "@value": "Contract Negotiation"
-      },
-      {
-        "@value": "Order Placement"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/smart-thermostat-obm-odm-oem#GlobalTechSalesAgent",
     "@type": [
       "https://ns.slashlife.ai/agent/core#Agent"
@@ -1045,17 +968,23 @@
       {
         "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb5"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:ClientCommunicationCapability"
+      },
+      {
+        "@id": "cap:ProposalGenerationCapability"
+      },
+      {
+        "@id": "cap:ContractManagementCapability"
+      }
     ]
   },
   {
     "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb5",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb8"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -1105,21 +1034,3 @@
       }
     ]
   },
-  {
-    "@id": "_:nd6cb96646e5143df9c4ff1b43a12d27bb8",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Client Communication"
-      },
-      {
-        "@value": "Proposal Generation"
-      },
-      {
-        "@value": "Contract Management"
-      }
-    ]
-  }
-]

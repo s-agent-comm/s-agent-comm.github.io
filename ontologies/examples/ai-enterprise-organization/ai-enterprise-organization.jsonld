@@ -13,17 +13,23 @@
       {
         "@id": "_:ndb1528d5f8d24ebcb5410ded32475918b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:AgentManagementCapability"
+      },
+      {
+        "@id": "cap:TaskDelegationCapability"
+      },
+      {
+        "@id": "cap:OrganizationalOversightCapability"
+      }
     ]
   },
   {
     "@id": "_:ndb1528d5f8d24ebcb5410ded32475918b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:ndb1528d5f8d24ebcb5410ded32475918b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -74,23 +80,6 @@
     ]
   },
   {
-    "@id": "_:ndb1528d5f8d24ebcb5410ded32475918b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Agent Management"
-      },
-      {
-        "@value": "Task Delegation"
-      },
-      {
-        "@value": "Organizational Oversight"
-      }
-    ]
-  },
-  {
     "@id": "https://ns.slashlife.ai/agent/examples/ai-enterprise-organization#DelegationToEmployee",
     "@type": [
       "https://ns.slashlife.ai/agent/delegation#Delegation"
@@ -107,7 +96,7 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Data Analysis"
+        "@id": "cap:DataAnalysisCapability"
       }
     ]
   }

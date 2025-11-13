@@ -13,17 +13,20 @@
       {
         "@id": "_:n9cd9d95acce440418f667e4bf139acb4b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:StartRunningMachineCapability"
+      },
+      {
+        "@id": "cap:StopRunningMachineCapability"
+      }
     ]
   },
   {
     "@id": "_:n9cd9d95acce440418f667e4bf139acb4b1",
     "@type": [
       "https://ns.slashlife.ai/agent/agent#AgentProfile"
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:n9cd9d95acce440418f667e4bf139acb4b4"
-      }
     ],
     "https://ns.slashlife.ai/agent/agent#coreIdentity": [
       {
@@ -75,20 +78,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:owner"
-      }
-    ]
-  },
-  {
-    "@id": "_:n9cd9d95acce440418f667e4bf139acb4b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "Start"
-      },
-      {
-        "@value": "Stop"
       }
     ]
   },

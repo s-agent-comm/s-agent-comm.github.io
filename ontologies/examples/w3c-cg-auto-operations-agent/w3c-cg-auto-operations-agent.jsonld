@@ -13,6 +13,17 @@
       {
         "@id": "_:b1"
       }
+    ],
+    "https://ns.slashlife.ai/agent/core#hasCapability": [
+      {
+        "@id": "cap:MonitorGitHubIssuesCapability"
+      },
+      {
+        "@id": "cap:DraftMeetingAgendaCapability"
+      },
+      {
+        "@id": "cap:PublishMinutesCapability"
+      }
     ]
   },
   {
@@ -28,11 +39,6 @@
     "https://ns.slashlife.ai/agent/agent#purposeAndRole": [
       {
         "@id": "_:b3"
-      }
-    ],
-    "https://ns.slashlife.ai/agent/agent#capabilities": [
-      {
-        "@id": "_:b4"
       }
     ],
     "https://ns.slashlife.ai/agent/agent#operationalTriggersAndIO": [
@@ -80,23 +86,6 @@
     "https://ns.slashlife.ai/agent/agent#owner": [
       {
         "@value": "did:example:w3c-cg-chairs"
-      }
-    ]
-  },
-  {
-    "@id": "_:b4",
-    "@type": [
-      "https://ns.slashlife.ai/agent/agent#CapabilityBundle"
-    ],
-    "https://ns.slashlife.ai/agent/agent#skill": [
-      {
-        "@value": "MonitorGitHubIssues"
-      },
-      {
-        "@value": "DraftMeetingAgenda"
-      },
-      {
-        "@value": "PublishMinutes"
       }
     ]
   },
@@ -191,7 +180,13 @@
     ],
     "https://ns.slashlife.ai/agent/delegation#delegationScope": [
       {
-        "@value": "Monitor repository for 'agenda-request' issues, draft weekly meeting agendas, and publish approved minutes to the CG website."
+        "@id": "cap:MonitorGitHubIssuesCapability"
+      },
+      {
+        "@id": "cap:DraftMeetingAgendaCapability"
+      },
+      {
+        "@id": "cap:PublishMinutesCapability"
       }
     ]
   },

@@ -24,8 +24,8 @@ This section details the primary classes defined in the Core Ontology.
 
 ### 2.2 Capability
 *   **URI:** `core:Capability`
-*   **Definition:** A describable functional competence or operational capacity of an Agent.
-*   **Description:** This class represents what an agent *can do*. Capabilities can be simple (e.g., "send an email") or complex (e.g., "manage a supply chain"). They are the units of authority that are granted in a Delegation.
+*   **Definition:** A high-level, declarative, and semantically rich description of an Agent's functional competence or operational capacity.
+*   **Description:** This class represents what an agent *can do* at a conceptual level. A `core:Capability` is further composed of one or more `cap:Skill`s (defined in the Capability Ontology), which represent the atomic, machine-executable functions. Capabilities are the units of authority that are granted in a Delegation.
 
 ### 2.3 Delegation
 *   **URI:** `core:Delegation`

@@ -1,108 +1,93 @@
 # Capability Ontology Vocabulary
 
 **Namespace:** `https://ns.slashlife.ai/agent/capability`
+**Prefix:** `cap`
 
-Defines the structure and properties for describing an AI Agent's functional competences and operational capacities.
+Defines the structure and properties for describing an AI Agent's functional competences and operational capacities, distinguishing between high-level semantic Capabilities and atomic, executable Skills.
 
 ## Classes
 
 ### `Capability`
 
 **IRI:** `https://ns.slashlife.ai/agent/capability#Capability`
+**Subclass Of:** `https://ns.slashlife.ai/agent/core#Capability`
 
+A high-level, declarative, and semantically rich description of an Agent's functional competence or operational capacity. Capabilities are designed for semantic matching and high-level planning by LLMs.
 
-    A functional competence of an Agent. Describes an operation, method,
-    or action family that can be executed under explicit identity and context.
-    
+### `Skill`
 
-### `CapabilityClass`
+**IRI:** `https://ns.slashlife.ai/agent/capability#Skill`
 
-**IRI:** `https://ns.slashlife.ai/agent/capability#CapabilityClass`
+An atomic, machine-executable function or API call that an Agent can perform. Skills are the concrete, auditable units of execution.
 
+### `Parameter`
 
-    Categorizes capability types, useful for policy, delegation, or competency grouping.
-    
+**IRI:** `https://ns.slashlife.ai/agent/capability#Parameter`
 
-### `CapabilityConstraint`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#CapabilityConstraint`
-
-
-    Restrictions on the use of a capability, including safety,
-    context limitations, or policy-bound execution gates.
-    
-
-### `CapabilityProvenance`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#CapabilityProvenance`
-
-Captures origin, version, or derivation lineage of a capability.
-
-### `CompositeCapability`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#CompositeCapability`
-
-
-    Aggregates multiple capabilities into a higher-level operational construct.
-    Used for modeling workflows, multi-step tasks, or protocol sequences.
-    
-
-### `ExecutionPattern`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#ExecutionPattern`
-
-
-    Formal structure describing expected execution behavior,
-    including determinism, interaction, or dependency modes.
-    
-
-### `InputSchema`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#InputSchema`
-
-Defines required input structure for capability invocation.
-
-### `OutputSchema`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#OutputSchema`
-
-Defines generated output structure for capability execution.
-
-### `PrimitiveCapability`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#PrimitiveCapability`
-
-Indivisible functional element representing a minimal semantic operation.
+Defines a single input or output parameter for a `cap:Skill`, including its name, data type, and description.
 
 ## Properties
 
-### `dependsOnCapability`
+### `capabilityExpression`
 
-**IRI:** `https://ns.slashlife.ai/agent/capability#dependsOnCapability`
-
+**IRI:** `https://ns.slashlife.ai/agent/capability#capabilityExpression`
 **Domain:** `https://ns.slashlife.ai/agent/capability#Capability`
-
-**Range:** `https://ns.slashlife.ai/agent/capability#Capability`
-
-Declares capability-level dependencies within an agent or delegation scope.
-
-### `includes`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#includes`
-
-**Domain:** `https://ns.slashlife.ai/agent/capability#CompositeCapability`
-
-**Range:** `https://ns.slashlife.ai/agent/capability#Capability`
-
-Capability elements that form part of a composite capability.
-
-### `allowedContext`
-
-**IRI:** `https://ns.slashlife.ai/agent/capability#allowedContext`
-
-**Domain:** `https://ns.slashlife.ai/agent/capability#CapabilityConstraint`
-
 **Range:** `http://www.w3.org/2001/XMLSchema#string`
 
-Context(s) in which capability execution is permitted.
+A natural language description of the capability, suitable for vector embedding and fuzzy matching by LLMs.
 
+### `hasSkill`
+
+**IRI:** `https://ns.slashlife.ai/agent/capability#hasSkill`
+**Domain:** `https://ns.slashlife.ai/agent/capability#Capability`
+**Range:** `https://ns.slashlife.ai/agent/capability#Skill`
+
+Links a high-level `cap:Capability` to one or more atomic `cap:Skill`s that implement it.
+
+### `function`
+
+**IRI:** `https://ns.slashlife.ai/agent/capability#function`
+**Domain:** `https://ns.slashlife.ai/agent/capability#Skill`
+**Range:** `http://www.w3.org/2001/XMLSchema#string`
+
+The name of the executable function or API endpoint that this skill invokes.
+
+### `hasParameter`
+
+**IRI:** `https://ns.slashlife.ai/agent/capability#hasParameter`
+**Domain:** `https://ns.slashlife.ai/agent/capability#Skill`
+**Range:** `https://ns.slashlife.ai/agent/capability#Parameter`
+
+Links a `cap:Skill` to its input or output parameters.
+
+### `name`
+
+**IRI:** `https://ns.slashlife.ai/agent/capability#name`
+**Domain:** `https://ns.slashlife.ai/agent/capability#Parameter`
+**Range:** `http://www.w3.org/2001/XMLSchema#string`
+
+The name of the parameter.
+
+### `datatype`
+
+**IRI:** `https://ns.slashlife.ai/agent/capability#datatype`
+**Domain:** `https://ns.slashlife.ai/agent/capability#Parameter`
+**Range:** `http://www.w3.org/2001/XMLSchema#string`
+
+The expected data type of the parameter (e.g., `xsd:string`, `xsd:integer`, `application/json`).
+
+### `description`
+
+**IRI:** `https://ns.slashlife.ai/agent/capability#description`
+**Domain:** `https://ns.slashlife.ai/agent/capability#Parameter`
+**Range:** `http://www.w3.org/2001/XMLSchema#string`
+
+A human-readable description of the parameter's purpose.
+
+### `required`
+
+**IRI:** `https://ns.slashlife.ai/agent/capability#required`
+**Domain:** `https://ns.slashlife.ai/agent/capability#Parameter`
+**Range:** `http://www.w3.org/2001/XMLSchema#boolean`
+
+Indicates whether the parameter is mandatory for the skill's execution.

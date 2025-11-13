@@ -1,7 +1,6 @@
 @prefix cap: <https://ns.slashlife.ai/agent/capability#> .
 @prefix core: <https://ns.slashlife.ai/agent/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -13,147 +12,101 @@
 <https://ns.slashlife.ai/agent/capability>
     a owl:Ontology ;
     dct:title "Capability Ontology" ;
-    dct:description "Defines the structure and properties for describing an AI Agent's functional competences and operational capacities." ;
-    dct:modified "2025-11-10"^^xsd:date ;
-    owl:versionInfo "0.2.0" ;
+    dct:description "Defines the structure for AI Agent capabilities, separating high-level semantic capabilities from low-level, executable skills." ;
+    dct:modified "2025-11-13"^^xsd:date ;
+    owl:versionInfo "0.3.0" ;
     owl:imports <https://ns.slashlife.ai/agent/core> .
 
-
 #################################################################
-# Capability Ontology — Purpose
+# Core Classes: Capability, Skill, Parameter
 #################################################################
 
 cap:Capability a owl:Class ;
     rdfs:subClassOf core:Capability ;
     rdfs:label "Capability" ;
-    rdfs:comment """
-    A functional competence of an Agent. Describes an operation, method,
-    or action family that can be executed under explicit identity and context.
-    """ .
+    rdfs:comment "A semantic, high-level description of a functional competence, designed for natural language understanding and fuzzy matching by LLMs." .
 
+cap:Skill a owl:Class ;
+    rdfs:label "Skill" ;
+    rdfs:comment "An atomic, machine-executable operation with defined parameters. A Capability is composed of one or more Skills." .
+
+cap:Parameter a owl:Class ;
+    rdfs:label "Parameter" ;
+    rdfs:comment "Defines a parameter for a Skill, including its name and type." .
 
 #################################################################
-# Primitive Capability Units
+# Capability Properties
 #################################################################
 
-cap:PrimitiveCapability a owl:Class ;
-    rdfs:subClassOf cap:Capability ;
-    rdfs:label "PrimitiveCapability" ;
-    rdfs:comment "Indivisible functional element representing a minimal semantic operation." .
-
-
-cap:capabilityId a owl:DatatypeProperty ;
+cap:capabilityExpression a owl:DatatypeProperty ;
     rdfs:domain cap:Capability ;
     rdfs:range xsd:string ;
-    rdfs:label "capabilityId" .
+    rdfs:label "capabilityExpression" ;
+    rdfs:comment "A natural language expression (e.g., a list of keywords) representing the semantic fingerprint of the capability, used for vector embedding and fuzzy matching." .
 
+cap:capabilityConfidence a owl:DatatypeProperty ;
+    rdfs:domain cap:Capability ;
+    rdfs:range xsd:float ;
+    rdfs:label "capabilityConfidence" ;
+    rdfs:comment "The agent's self-assessed confidence in its ability to perform this capability, ranging from 0.0 to 1.0." .
+
+cap:hasSkill a owl:ObjectProperty ;
+    rdfs:domain cap:Capability ;
+    rdfs:range cap:Skill ;
+    rdfs:label "hasSkill" ;
+    rdfs:comment "Links a high-level Capability to one or more atomic, executable Skills that implement it." .
+
+#################################################################
+# Skill Properties
+#################################################################
+
+cap:skillId a owl:DatatypeProperty ;
+    rdfs:domain cap:Skill ;
+    rdfs:range xsd:string ;
+    rdfs:label "skillId" .
 
 cap:description a owl:DatatypeProperty ;
-    rdfs:domain cap:Capability ;
+    rdfs:domain cap:Skill ;
     rdfs:range xsd:string ;
     rdfs:label "description" .
 
+cap:hasParameter a owl:ObjectProperty ;
+    rdfs:domain cap:Skill ;
+    rdfs:range cap:Parameter ;
+    rdfs:label "hasParameter" .
+
+cap:dependsOnSkill a owl:ObjectProperty ;
+    rdfs:domain cap:Skill ;
+    rdfs:range cap:Skill ;
+    rdfs:label "dependsOnSkill" ;
+    rdfs:comment "Declares skill-level dependencies." .
 
 #################################################################
-# Capability Composition
+# Parameter Properties
 #################################################################
 
-cap:CompositeCapability a owl:Class ;
-    rdfs:subClassOf cap:Capability ;
-    rdfs:label "CompositeCapability" ;
-    rdfs:comment """
-    Aggregates multiple capabilities into a higher-level operational construct.
-    Used for modeling workflows, multi-step tasks, or protocol sequences.
-    """ .
+cap:parameterName a owl:DatatypeProperty ;
+    rdfs:domain cap:Parameter ;
+    rdfs:range xsd:string ;
+    rdfs:label "parameterName" .
 
-cap:includes a owl:ObjectProperty ;
-    rdfs:domain cap:CompositeCapability ;
-    rdfs:range cap:Capability ;
-    rdfs:label "includes" ;
-    rdfs:comment "Capability elements that form part of a composite capability." .
-
-
-cap:dependsOnCapability a owl:ObjectProperty ;
-    rdfs:domain cap:Capability ;
-    rdfs:range cap:Capability ;
-    rdfs:label "dependsOnCapability" ;
-    rdfs:comment "Declares capability-level dependencies within an agent or delegation scope." .
-
+cap:parameterType a owl:DatatypeProperty ;
+    rdfs:domain cap:Parameter ;
+    rdfs:range xsd:string ;
+    rdfs:label "parameterType" .
 
 #################################################################
-# Semantic Classification
-#################################################################
-
-cap:CapabilityClass a owl:Class ;
-    rdfs:label "CapabilityClass" ;
-    rdfs:comment """
-    Categorizes capability types, useful for policy, delegation, or competency grouping.
-    """ .
-
-cap:classifiedAs a owl:ObjectProperty ;
-    rdfs:domain cap:Capability ;
-    rdfs:range cap:CapabilityClass ;
-    rdfs:label "classifiedAs" .
-
-
-#################################################################
-# Input / Output Semantics
-#################################################################
-
-cap:InputSchema a owl:Class ;
-    rdfs:label "InputSchema" ;
-    rdfs:comment "Defines required input structure for capability invocation." .
-
-cap:OutputSchema a owl:Class ;
-    rdfs:label "OutputSchema" ;
-    rdfs:comment "Defines generated output structure for capability execution." .
-
-cap:requiresInput a owl:ObjectProperty ;
-    rdfs:domain cap:Capability ;
-    rdfs:range cap:InputSchema ;
-    rdfs:label "requiresInput" .
-
-cap:producesOutput a owl:ObjectProperty ;
-    rdfs:domain cap:Capability ;
-    rdfs:range cap:OutputSchema ;
-    rdfs:label "producesOutput" .
-
-
-#################################################################
-# Execution Semantics
-#################################################################
-
-cap:ExecutionPattern a owl:Class ;
-    rdfs:label "ExecutionPattern" ;
-    rdfs:comment """
-    Formal structure describing expected execution behavior,
-    including determinism, interaction, or dependency modes.
-    """ .
-
-cap:executionPattern a owl:ObjectProperty ;
-    rdfs:domain cap:Capability ;
-    rdfs:range cap:ExecutionPattern ;
-    rdfs:label "executionPattern" .
-
-
-#################################################################
-# Constraints
+# Constraints & Provenance (Unchanged)
 #################################################################
 
 cap:CapabilityConstraint a owl:Class ;
     rdfs:label "CapabilityConstraint" ;
-    rdfs:comment """
-    Restrictions on the use of a capability, including safety,
-    context limitations, or policy-bound execution gates.
-    """ .
+    rdfs:comment "Restrictions on the use of a capability, including safety, context limitations, or policy-bound execution gates." .
 
 cap:hasConstraint a owl:ObjectProperty ;
     rdfs:domain cap:Capability ;
     rdfs:range cap:CapabilityConstraint ;
     rdfs:label "hasConstraint" .
-
-
-# Safety / context qualifiers
 
 cap:allowedContext a owl:DatatypeProperty ;
     rdfs:domain cap:CapabilityConstraint ;
@@ -170,11 +123,6 @@ cap:requiresPermission a owl:DatatypeProperty ;
     rdfs:domain cap:CapabilityConstraint ;
     rdfs:range xsd:string ;
     rdfs:label "requiresPermission" .
-
-
-#################################################################
-# Capability Provenance
-#################################################################
 
 cap:CapabilityProvenance a owl:Class ;
     rdfs:label "CapabilityProvenance" ;
