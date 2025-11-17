@@ -17,11 +17,19 @@ Our vision is to create a universal standard for safe and effective semantic com
 
 ---
 
+## Core Ontology
+
+The core Agent Semantic Communication Ontology, including all TTL, JSON-LD, and SHACL files, is now managed in a dedicated repository to better separate the formal standard from community governance and documentation.
+
+➡️ **[Agent Ontology Core Repository](https://github.com/s-agent-comm/agent-ontology)**
+
+This repository contains all the normative artifacts of the standard.
+
+---
+
 ## High-Level Architecture
 
-The ontology is designed as a collection of modular, interconnected components. The `core` ontology provides the fundamental concepts, upon which other modules for agent identity, capabilities, security, and more are built.
-
-The main entry point for the entire model is [`ontologies/ontology.ttl`](./ontologies/ontology.ttl), which imports all the necessary modules.
+This repository now focuses on the high-level specifications, use cases, and community governance for the standard. The formal ontology modules, which are developed in the core repository, are structured as follows:
 
 ```mermaid
 graph TD
@@ -50,18 +58,7 @@ graph TD
 
 ---
 
-## How to Use
 
-To use the complete ontology, we recommend loading the main entry point file in your preferred tool (e.g., Protégé for visualization, or an RDF library for programmatic access).
-
--   **Main Ontology File:** [`ontologies/ontology.ttl`](./ontologies/ontology.ttl)
-
-This single file uses `owl:imports` to load the entire modular architecture, giving you access to all classes and properties.
-
-### Validation
-The repository includes a suite of [SHACL shapes](./tests/) to validate data created against the ontology. Our CI pipeline automatically runs these tests.
-
----
 
 ## Use Cases and Examples
 
