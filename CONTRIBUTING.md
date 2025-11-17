@@ -17,14 +17,9 @@ Your feedback on the proposal is critical at this stage. You can:
 *   **Use GitHub Issues:** Open an issue to provide feedback, ask questions, or suggest changes related to the proposal. Please tag it with the `w3c-proposal` label.
 *   **Participate in the W3C Mailing List:** Once you join the community group, you will have access to the mailing list where official discussions happen.
 
-## Where to Contribute
+### Contributing Use Cases and Examples
 
-Not sure where to start? Here are a few ideas:
-
-*   **Use Cases:** Do you have a specific use case in your industry (e.g., finance, healthcare, IoT) that could be enabled by this ontology? Share it by opening an issue.
-*   **Ontology Feedback:** Do you see a concept in the `ontologies/` directory that could be improved or clarified? Let us know.
-*   **Examples:** Help us build more real-world examples in the `ontologies/examples/` directory.
-*   **Documentation:** Find a typo or an unclear sentence in our `specs/`? Propose a change!
+All use cases and practical examples are now managed in a dedicated repository. If you wish to contribute a new use case or example, please visit the **[Agent Ontology Use Cases repository](https://github.com/s-agent-comm/agent-ontology-use-cases)** and follow its contribution guidelines.
 
 ## Making Contributions via Pull Requests
 
