@@ -97,9 +97,10 @@ The CG does not focus on browser-based applications or short-lived client-side i
 The Community Group intends to publish:
 
 1.  **AI Agent Semantic Communication Ontology v1.0:** Published in Turtle and JSON-LD, encompassing all defined modules (Core, Agent, Capability, Delegation, Security Binding, Execution Context, Intent, Ledger, Payment, Identity, Agent Profile).
-2.  **SHACL Shapes for Ontology Validation:** A comprehensive suite of SHACL shapes to ensure data quality and adherence to the defined ontology.
-3.  **Implementation and Governance Notes:** Guidelines and best practices for implementing and governing agents based on the ontology, including aspects of traceability, responsibility boundaries, and secure delegation patterns.
-4.  **Interoperability Best Practices:** Guidelines for how agent runtimes, OS-level systems, and model providers can adopt the ontology for seamless interoperability.
+2.  **AgentIDL Specification and Reference Implementation:** A formal specification for AgentIDL (WebIDL extension) and a reference implementation of its compiler to facilitate code generation from the core ontology.
+3.  **SHACL Shapes for Ontology Validation:** A comprehensive suite of SHACL shapes to ensure data quality and adherence to the defined ontology.
+4.  **Implementation and Governance Notes:** Guidelines and best practices for implementing and governing agents based on the ontology, including aspects of traceability, responsibility boundaries, and secure delegation patterns.
+5.  **Interoperability Best Practices:** Guidelines for how agent runtimes, OS-level systems, and model providers can adopt the ontology for seamless interoperability.
 
 ### 5. Dependencies
 
