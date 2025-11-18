@@ -34,22 +34,58 @@ Minimal normative requirements for interpreting CommunicativeActs, Delegations, 
 #### 2.6 Machine-Readable Ontology Artifacts
 RDF/OWL vocabularies, JSON-LD contexts, SHACL shapes that express the above concepts in a formally verifiable way.
 
+#### 2.7 AgentIDL (WebIDL extension)
+An Interface Description Language generated from the core ontology to facilitate code generation. The scope includes defining the language and producing a reference implementation of an AgentIDL compiler.
+
+#### 2.8 Knowledge Representation Technology Bridge for Agent Memory
+Defining the use of knowledge representation technologies as a bridge for an Agent's internal memory and communication.
+
 **Note:** This group focuses exclusively on the **semantic payload** of a communication. It does not define transport protocols (e.g., TCP/IP, HTTP), agent implementation details (e.g., LLMs, internal reasoning models), or specific A2A communication patterns. The defined ontology represents the "content of the message," not the "envelope" or the "delivery mechanism."
 
 ### 3. Out of Scope
 
-The following topics are important but are **not** included in the initial scope. They may be added in later versions but are excluded from v1.0 specifications:
-- Cultural language behavior (politeness, tone, socio-pragmatics)
-- SemanticEnergy (semantic resource metric)
-- Narrative memory lifecycle (short-term, long-term, meta-cognition)
-- Agent inner communication ontology
-- Agent self-reflection mechanisms
-- Agent emotional signaling
-- Full reasoning frameworks
-- Application-specific UI or implementation details
-- Model architecture constraints
-
-These areas are implementation-dependent and should remain flexible for regional or platform-specific ecosystems.
+The following topics are explicitly not within the scope of this Community Group. These topics may be implemented by downstream systems, but will not be defined, standardized, or constrained by this CG:
+1. Transport Protocols
+No definition or modification of any transport layer (e.g., HTTP, WebSockets, TCP, UDP, QUIC).
+Transport is treated as an opaque carrier of serialized semantic payloads.
+2. Internal Agent Reasoning Models
+The CG does not define:
+- LLM behavior
+- planning algorithms
+- inference engines
+- symbolic solvers
+- internal cognitive architectures
+These are implementation choices left entirely to agent developers.
+3. Execution Backends and Compute Targets
+The CG does not specify how semantic instructions are executed on:
+- CPU
+- GPU
+- TPU
+- WASM
+- MLIR
+- hardware accelerators
+Any compilation or lowering pathway from semantic models to compute IR is outside the CG scope.
+4. Economic Models and Payment Systems
+The CG does not define:
+- settlement systems
+- payment rails
+- economic incentives
+- token models
+Although semantic structures (e.g., PaymentIntent) may be modeled, financial mechanisms themselves are not standardized.
+5. Blockchain / Distributed Ledger Technology
+The CG does not mandate or define consensus protocols, chain structures, or DLT implementations.
+A ledger in this CG is purely a logical abstraction.
+6. Domain-Specific Knowledge or Vertical Ontologies
+No legal, medical, financial, manufacturing, or industry-specific knowledge models are defined.
+The ontology remains strictly domain-neutral.
+7. Governance, Policy, or Legal Interpretation
+The CG does not define regulatory frameworks, compliance interpretations, or legal norms.
+It only provides machine-verifiable semantic structures usable by such frameworks.
+8. Runtime Implementations or SDKs
+The CG does not produce executable software, agents, runtimes, or OS implementations.
+Reference code may be published, but not standardized.
+9. Conflict Resolution Mechanisms
+The CG does not define specific mechanisms for resolving conflicts (e.g., CRDT, OT, Byzantine fault tolerance). These are implementation choices left to downstream systems and governance frameworks.
 
 ### 4. Deliverables
 
