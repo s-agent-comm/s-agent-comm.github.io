@@ -7,7 +7,7 @@ The scope includes:
 1. Interaction Semantics
 Formal definitions for Intent, Delegation, Capability advertisement, ExecutionRecord, and related CommunicativeActs.
 2. Identity and Verifiability Primitives
-Use of Decentralized Identifiers (DIDs), Verifiable Credentials (VCs), signatures, and provenance structures needed to establish trust in agent actions.
+Use of Decentralized Identifiers (DIDs), Verifiable Credentials (VCs), signatures, and provenance structures needed to establish trust in agent actions. This includes binding DIDs to hardware roots of trust (e.g., TEEs like ARM TrustZone) through attestation.
 3. Narrative Model
 The definition of an append-only, context-complete semantic log that provides traceability, accountability, and explainability of agent behavior.
 4. Semantic Ledger Model
