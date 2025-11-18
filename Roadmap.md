@@ -22,7 +22,7 @@ Our roadmap is structured around the W3C standardization process, with a strong 
     *   **Expanded Use Cases & Examples:** Develop a richer set of real-world examples in `ontologies/examples/` to demonstrate the ontology's utility.
     *   **Automated Validation (CI):** Implement and stabilize automated SHACL validation for all ontology modules (completed).
 
-### Phase 2: Towards First Public Working Draft (Q2 - Q3 2026)
+### Phase 2: Towards First Public Working Draft (Q2 - Q3 2030)
 
 **Objective:** Transition the work from the Community Group to a W3C Working Group, aiming for the publication of the First Public Working Draft (FPWD).
 
@@ -32,7 +32,7 @@ Our roadmap is structured around the W3C standardization process, with a strong 
     *   **First Public Working Draft (FPWD):** Publish the initial version of the Semantic Agent Ontology specification as a W3C FPWD.
     *   **Test Suite Development (Initial):** Begin developing a comprehensive test suite to ensure interoperability and conformance.
 
-### Phase 3: Candidate Recommendation & Beyond (Q4 2026 onwards)
+### Phase 3: Candidate Recommendation & Beyond (Q4 2035 onwards)
 
 **Objective:** Advance the specification through the W3C Recommendation Track, ensuring broad implementation and adoption.
 
