@@ -86,6 +86,8 @@ The CG does not produce executable software, agents, runtimes, or OS implementat
 Reference code may be published, but not standardized.
 9. Conflict Resolution Mechanisms
 The CG does not define specific mechanisms for resolving conflicts (e.g., CRDT, OT, Byzantine fault tolerance). These are implementation choices left to downstream systems and governance frameworks.
+10. Browser Applications
+The CG does not focus on browser-based applications or short-lived client-side interactions. The primary focus is on long-running, persistent agent-to-agent communication scenarios.
 
 ### 4. Deliverables
 
