@@ -21,6 +21,8 @@ RDF/OWL vocabularies, JSON-LD contexts, SHACL shapes that express the above conc
 An Interface Description Language generated from the core ontology to facilitate code generation. The scope includes defining the language and producing a reference implementation of an AgentIDL compiler.
 8. Knowledge Representation Technology Bridge for Agent Memory
 Defining the AgentIDL interfaces and serialization processes for integrating **stateful, version-controlled** knowledge representation technologies (e.g., GraphDBs, systems supporting version control like Git for knowledge artifacts) as a bridge for an Agent's internal memory and communication. **Note: Stateless memory solutions like Vector Databases are explicitly out of scope, as they do not support the cognitive memory requirements for agents.**
+9. Schema.org Extension Submission
+Developing and submitting extensions to Schema.org to incorporate Agent-specific semantic concepts, facilitating broader web discoverability and interoperability.
 
 ---
 
