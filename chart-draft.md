@@ -10,7 +10,7 @@ This Community Group will operate entirely asynchronously, using GitHub issues a
 
 Current multi-agent systems often lack a standardized, interoperable framework for defining agents, their capabilities, and the rules governing their interactions. This leads to fragmentation and hinders secure, verifiable communication and collaboration between heterogeneous agents, humans, and mixed systems.
 
-The goal of this Community Group is to define a cross-model, cross-runtime, cross-platform **AI Agent Semantic Communication Ontology** that enables verifiable, secure, and interoperable communication among AI agents. This group focuses on establishing a foundational semantic layer for agent interactions.
+The goal of this Community Group is to define a cross-model, cross-runtime, cross-platform **AI Agent Semantic Communication Ontology** that enables verifiable, secure, and interoperable communication among AI agents. This group focuses on establishing a foundational semantic layer for agent interactions. To ensure long-term stability and future-proofing, this standard is deliberately decoupled from any specific internal reasoning technology, including the currently prevalent Large Language Models (LLMs). The focus is on an agent's external, verifiable behavior, not its internal implementation.
 
 ### 2. Scope
 

@@ -2,7 +2,7 @@ Scope Boundary Statement (Can be directly included in README or Explainer)
 
 ✅ In Scope
 
-This Community Group focuses exclusively on defining the semantic structures that enable verifiable and interoperable interaction between heterogeneous agents.
+This Community Group focuses exclusively on defining the semantic structures that enable verifiable and interoperable interaction between heterogeneous agents. Crucially, this standard is designed to be independent of any specific internal reasoning technology, such as Large Language Models (LLMs), focusing solely on the external, verifiable communicative acts of an agent.
 The scope includes:
 1. Interaction Semantics
 Formal definitions for Intent, Delegation, Capability advertisement, ExecutionRecord, and related CommunicativeActs.
