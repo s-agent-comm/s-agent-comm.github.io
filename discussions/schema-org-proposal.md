@@ -23,10 +23,18 @@ The ontology is licensed under [Creative Commons Attribution 4.0 International (
 
 The Agent Ontology defines several core concepts:
 
-- **Agent (`agent:Agent`)**: An autonomous entity with a verifiable identity (e.g., DID) that can perform actions. We propose mapping this as a subclass of `schema:SoftwareApplication` and `schema:Service`.
-- **Capability (`cap:Capability`)**: A high-level, semantic description of a function an agent can perform (e.g., "book a flight"). We propose mapping this to `schema:potentialAction`.
-- **Skill (`cap:Skill`)**: A specific, machine-executable operation that implements a capability, with defined parameters (e.g., an API call).
-- **Intent (`intent:Intent`)**: A semantic expression of purpose or a goal that an agent aims to achieve.
+- **Agent (`agent:Agent`)**: An autonomous entity with a verifiable identity (e.g., DID) that can perform actions. Mapped as a subclass of `schema:SoftwareApplication` and `schema:Service`.
+- **Person (`agent:Person`)**: Represents a human agent. Mapped as a subclass of `schema:Person`.
+- **Organization (`agent:Organization`)**: Represents an organizational agent. Mapped as a subclass of `schema:Organization`.
+- **Capability (`cap:Capability`)**: A high-level, semantic description of a function an agent can perform (e.g., "book a flight"). Mapped as a subclass of `schema:Action`. The property `core:hasCapability` is mapped as a subproperty of `schema:potentialAction`.
+- **Skill (`cap:Skill`)**: A specific, machine-executable operation that implements a capability, with defined parameters (e.g., an API call). Mapped as a subclass of `schema:Action`.
+- **Intent (`intent:Intent`)**: A semantic expression of purpose or a goal that an agent aims to achieve. Mapped as a subclass of `schema:Intent`.
+- **Core Action (`core:Action`)**: A general action performed by an agent. Mapped as a subclass of `schema:Action`.
+- **Agent Relationship (`del:AgentRelationship`)**: Describes a relationship or delegation between agents. Mapped as a subclass of `schema:Role`.
+- **Contract (`contract:Contract`)**: Represents a formal agreement between agents. Mapped as a subclass of `schema:Contract`.
+- **Ledger Event (`ledger:LedgerEvent`)**: An event recorded on a ledger. Mapped as a subclass of `schema:Event`.
+- **Agent Objective (`agent:objective`)**: The purpose or goal of an agent. Mapped as a subproperty of `schema:description`.
+- **Identity Title (`id:title`)**: A title or name associated with an agent's identity. Mapped as a subproperty of `schema:name`.
 
 ## 4. Example Usage (JSON-LD)
 
