@@ -1,4 +1,4 @@
-# Legal-Facing Explainer
+# Legal Primer: Semantic Agent Communication
 
 This document aims to clarify specific terminology within this technical framework for legal professionals and to map them to corresponding legal concepts.
 

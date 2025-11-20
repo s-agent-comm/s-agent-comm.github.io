@@ -6,6 +6,7 @@ This directory contains the official Community Group Reports (CGRs) for the Sema
 
 *   **[Explainer](./explainer.md)**: Start here! A concise overview of the problem, solution, and user needs.
 *   **[Primer](./primer.md)**: A deep dive into the vision, philosophy, and high-level architecture.
+*   **[Legal Primer](./legal-primer.md)**: Terminology mapping for legal professionals.
 *   **[Architecture & Requirements](./architecture.md)**: Detailed use cases, requirements, and the "Unified Narrative" architectural model.
 
 ## Normative Specifications
