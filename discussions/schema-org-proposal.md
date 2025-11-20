@@ -1,76 +1,100 @@
-# Proposal: AI Agent Ontology Extension for Schema.org
+# Proposal for Hosted Extension: Agent Ontology
 
-## 1. Introduction
+## 1. Motivation
 
-This proposal outlines an extension to Schema.org to better represent and enable interoperability for **Autonomous AI Agents** and their interactions. As AI agents become increasingly prevalent, there is a critical need for a standardized semantic framework to describe their identity, capabilities, delegation of authority, intentions, and verifiable execution records.
+This proposal suggests the inclusion of the **Agent Ontology** as a hosted extension to Schema.org. The Agent Ontology is a project by the [W3C Semantic Agent Communication Community Group (SAC-CG)](https://www.w3.org/community/s-agent-comm/), designed to provide a standard, interoperable vocabulary for describing the identity, capabilities, and operational semantics of AI Agents.
 
-Existing Schema.org vocabulary provides a strong foundation for describing entities and actions. However, it lacks the specific granularity and verifiable mechanisms required for a robust, decentralized, and auditable agent ecosystem. This proposal aims to bridge that gap by integrating the core concepts from the [AI Agent Ontology](https://slashlifeai.github.io/agent-ontology/) as a hosted extension.
+As AI agents become more prevalent on the web, there is a growing need for a standardized way to describe them. This allows for:
+- **Enhanced Discoverability**: Search engines can understand what an AI Agent is, what it can do, and how to interact with it, leading to richer search results and better user experiences.
+- **Interoperability**: A common vocabulary enables different agent platforms, marketplaces, and tools to seamlessly exchange information about agents.
+- **Trust and Accountability**: Standardized descriptions of an agent's identity, ownership, and capabilities are foundational for building trustworthy and accountable AI systems.
 
-## 2. Problem Statement
+By integrating with Schema.org, the Agent Ontology can leverage the vast existing ecosystem of tools and platforms, making it easier for developers to adopt and for search engines to consume.
 
-While Schema.org offers `schema:Person`, `schema:Organization`, and `schema:Action`, these types do not fully capture the unique characteristics of autonomous AI agents:
+## 2. Link to Ontology and Documentation
 
-*   **Autonomous Identity:** Agents require verifiable, machine-readable identities that can be cryptographically bound and managed in a decentralized manner.
-*   **Explicit Capabilities:** The ability of an agent to perform specific functions needs to be formally described and discoverable, beyond general service offerings.
-*   **Verifiable Delegation:** The authorization chain for an agent to act on behalf of another requires a structured, auditable representation.
-*   **Semantic Intent:** Agents operate with specific goals and purposes that drive their actions, which need to be explicitly modeled.
-*   **Auditable Execution:** Every significant action performed by an agent, especially in high-stakes or cross-organizational contexts, requires a verifiable and immutable record.
+- **Stable Namespace URI**: `https://w3id.org/agent-ontology/`
+- **GitHub Repository (Source of Truth)**: [https://github.com/w3c-cg/agent-ontology](https://github.com/w3c-cg/agent-ontology)
+- **Human-Readable Documentation (Generated)**: [https://s-agent-comm.github.io/agent-ontology/](https://s-agent-comm.github.io/agent-ontology/)
 
-Without these extensions, the rich semantic interactions of AI agents remain opaque and difficult to integrate into the broader Web of data, hindering interoperability and trust.
+The ontology is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), which is compatible with Schema.org's terms.
 
-## 3. Proposed Solution: AI Agent Ontology as a Hosted Extension
+## 3. Core Concepts
 
-We propose to integrate key concepts from the AI Agent Ontology as a hosted extension to Schema.org. This approach allows us to maintain the specialized vocabulary within our W3C Community Group while providing a clear, officially recognized bridge to the Schema.org ecosystem.
+The Agent Ontology defines several core concepts:
 
-### 3.1 Key Concepts for Extension
+- **Agent (`agent:Agent`)**: An autonomous entity with a verifiable identity (e.g., DID) that can perform actions. We propose mapping this as a subclass of `schema:SoftwareApplication` and `schema:Service`.
+- **Capability (`cap:Capability`)**: A high-level, semantic description of a function an agent can perform (e.g., "book a flight"). We propose mapping this to `schema:potentialAction`.
+- **Skill (`cap:Skill`)**: A specific, machine-executable operation that implements a capability, with defined parameters (e.g., an API call).
+- **Intent (`intent:Intent`)**: A semantic expression of purpose or a goal that an agent aims to achieve.
 
-Our core ontology introduces the following foundational concepts:
+## 4. Example Usage (JSON-LD)
 
-*   **`Agent`**: An autonomous actor capable of perceiving, interpreting, or executing actions within a delegated semantic environment.
-*   **`Capability`**: A describable functional competence or operational capacity of an Agent.
-*   **`Delegation`**: A structured semantic relation where one Agent authorizes another to act within a defined scope.
-*   **`Intent`**: A semantic expression of purpose, objective, or expected action outcome.
-*   **`Action`**: A concrete execution event initiated by an Agent, producing observable or verifiable consequences.
-*   **`Artifact`**: A produced output or result generated through agent execution.
-*   **`TraceEvent`**: A verifiable record linking an Agent, an Action, and contextual constraints.
-*   **`Identity`**: The verifiable identity of an agent, potentially leveraging Decentralized Identifiers (DIDs).
+Here is a practical example of how a developer could use the combined vocabularies to describe a "Travel Agent Bot" on their website.
 
-### 3.2 Mapping to Existing Schema.org Vocabulary
+```html
+<script type="application/ld+json">
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "agent": "https://w3id.org/agent-ontology/agent#",
+    "cap": "https://w3id.org/agent-ontology/capability#",
+    "id": "https://w3id.org/agent-ontology/identity#"
+  },
+  "@type": ["schema:SoftwareApplication", "agent:Agent"],
+  "schema:name": "Travel Agent Bot",
+  "schema:description": "An AI-powered assistant to help you find and book flights and hotels.",
+  "schema:author": {
+    "@type": "schema:Organization",
+    "schema:name": "Global Travel Inc."
+  },
+  "agent:hasIdentity": {
+    "@type": "id:AgentIdentity",
+    "id:did": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH",
+    "id:title": "Travel Agent Bot Identity"
+  },
+  "agent:purposeAndRole": {
+    "@type": "agent:PurposeRole",
+    "agent:objective": "Facilitate travel bookings for users."
+  },
+  "core:hasCapability": [
+    {
+      "@type": "cap:Capability",
+      "cap:capabilityExpression": "Find and book flights",
+      "cap:hasSkill": [
+        {
+          "@type": "cap:Skill",
+          "cap:skillId": "api.travel.searchFlights",
+          "cap:description": "Searches for available flights between two cities on a given date.",
+          "cap:hasParameter": [
+            { "cap:parameterName": "origin", "cap:parameterType": "schema:City" },
+            { "cap:parameterName": "destination", "cap:parameterType": "schema:City" },
+            { "cap:parameterName": "departureDate", "cap:parameterType": "schema:Date" }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "cap:Capability",
+      "cap:capabilityExpression": "Find hotel accommodations"
+    }
+  ]
+}
+</script>
 
-We have carefully mapped our ontology concepts to the closest existing Schema.org types and properties, proposing extensions only where necessary. A detailed mapping can be found in the [Schema.org Mapping Document](../specs/schema-org-mapping.md).
+This example demonstrates how `schema.org` properties (`name`, `description`, `author`) can be used for general description, while the `agent-ontology` vocabulary provides the specialized, structured details about the agent's identity and functional capabilities.
 
-**Examples of proposed mappings:**
+## 5. Relationship with Technical Specifications (e.g., OpenAPI)
 
-*   `core:Agent` could be a subclass of `schema:Thing`, `schema:Person`, or `schema:Organization` with additional agent-specific properties.
-*   `core:Action` aligns closely with `schema:Action`, extended with properties for verifiable execution.
-*   `core:Delegation` extends `schema:AuthorizeAction` to include specific delegation parameters.
+It is important to clarify that the Agent Ontology provides a **semantic description** of AI Agents and their capabilities, rather than a direct technical specification for API implementation.
 
-## 4. Benefits of this Extension
+-   **Agent Ontology (Semantic Layer)**: Defines *what* an Agent is, *what* its capabilities are, and *why* it performs certain actions. It establishes a common, machine-readable vocabulary for high-level understanding, discoverability, and interoperability across different agent systems. This is akin to a "menu" describing available services.
+-   **OpenAPI (Technical Implementation Layer)**: Defines *how* a specific `cap:Skill` or action is technically implemented and executed. This includes details like API endpoints, request/response formats, authentication, and data schemas. This is akin to a "recipe" or "technical manual" for executing a specific task.
 
-*   **Enhanced Interoperability:** Enables AI agents from different vendors and platforms to understand each other's identities, capabilities, and intentions.
-*   **Increased Trust and Accountability:** Provides a framework for verifiable delegation and auditable execution records, crucial for high-stakes agent interactions.
-*   **Richer Semantic Web:** Extends the descriptive power of Schema.org to a rapidly growing and critical domain of autonomous systems.
-*   **Community-Driven:** Developed and maintained by the W3C Semantic Agent Communication Community Group, ensuring broad input and adoption.
-*   **Practical Applicability:** The ontology is abstracted from real operational cross-border systems, ensuring its practical utility.
+The two are complementary: the Agent Ontology provides the semantic context that allows systems to discover and understand an agent's potential, while OpenAPI (or similar specifications like AsyncAPI, GraphQL schemas) provides the precise technical instructions for interacting with that agent's underlying services. The ontology does not directly generate OpenAPI specifications but provides the semantic hooks (e.g., `cap:skillId`) that can be used to link to such technical documentation.
 
-## 5. Community Support and Adoption
+## 6. Community and Maintenance
 
-This ontology is being developed by the [W3C Semantic Agent Communication Community Group](https://www.w3.org/community/blog/2025/11/09/proposed-group-semantic-agent-communication-community-group/). We have a growing community of experts and practitioners contributing to its design and validation.
+The Agent Ontology is actively maintained by the W3C Semantic Agent Communication Community Group. We are committed to the long-term stability and evolution of this vocabulary in alignment with the needs of the AI and web developer communities.
 
-Reference implementations and usage examples are available in our [GitHub repository](https://github.com/slashlifeai/agent-ontology/).
-
-## 6. Technical Details and Resources
-
-*   **GitHub Repository:** [https://github.com/slashlifeai/agent-ontology/](https://github.com/slashlifeai/agent-ontology/)
-*   **Live Specifications (W3C ReSpec Format):** [https://slashlifeai.github.io/agent-ontology/specs/w3c/core-ontology.html](https://slashlifeai.github.io/agent-ontology/specs/w3c/core-ontology.html)
-*   **Full Vocabulary Index:** [https://slashlifeai.github.io/agent-ontology/specs/vocabulary/](https://slashlifeai.github.io/agent-ontology/specs/vocabulary/)
-*   **Interactive Tools:** JSON-LD Viewer, JSON Schema Viewer (available on the GitHub Pages site).
-
-## 7. Call to Action
-
-We invite the Schema.org community to review this proposal, provide feedback, and consider hosting the AI Agent Ontology as an official extension. We are committed to working collaboratively to ensure a seamless integration that benefits the entire Semantic Web ecosystem.
-
----
-
-**Contact:** [Your Name/Email or CG Contact Info]
-**Date:** November 10, 2025
+We believe that making the Agent Ontology a hosted extension of Schema.org will be a significant step towards a more interoperable and discoverable ecosystem of AI agents on the web. We welcome feedback and are happy to answer any questions.
