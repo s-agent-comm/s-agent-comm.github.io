@@ -20,7 +20,7 @@ This document provides practical examples of how to describe your SaaS API or so
 ## 2. Link to Ontology and Documentation
 
 - **Stable Namespace URI**: `https://w3id.org/agent-ontology/`
-- **GitHub Repository (Source of Truth)**: [https://github.com/w3c-cg/agent-ontology](https://github.com/w3c-cg/agent-ontology)
+- **GitHub Repository (Source of Truth)**: [https://github.com/s-agent-comm/agent-ontology](https://github.com/s-agent-comm/agent-ontology)
 - **Human-Readable Documentation (Generated)**: [https://s-agent-comm.github.io/agent-ontology/](https://s-agent-comm.github.io/agent-ontology/)
 
 The ontology is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), which is compatible with Schema.org's terms.
