@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Semantic Agent Communication Community Group Charter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/base">
+    <style>
+      body { max-width: 60em; margin: auto; }
+      li { margin-bottom: 9pt; }
+    </style>
+  </head>
+
+  <body>
+    <h1>[DRAFT] Semantic Agent Communication Community Group Charter</h1>
+
+    <p>This Charter is work in progress. To submit feedback, please use the group’s GitHub Issues page.</p>
+
+    <ul>
+      <li>This Charter: https://www.w3.org/community/s-agent-comm/charter/</li>
+      <li>Previous Charter: None (initial charter)</li>
+      <li>Start Date: 2025-11-XX</li>
+      <li>Last Modified: 2025-11-XX</li>
+    </ul>
+
+    <h2 id="goals">Goals</h2>
+    <p>
+      The Semantic Agent Communication Community Group aims to define semantic models and communication structures
+      that enable autonomous software agents to interoperate in a verifiable, accountable, and machine-interpretable manner.
+      Existing approaches focus on transport protocols or model-level behaviors. This group focuses instead on 
+      the semantic layer required for identity, delegation, capability discovery, intent modeling, and execution traceability.
+      The group’s goal is to establish a common semantic foundation for interoperable agent-to-agent communication across
+      heterogeneous systems, identity frameworks, and governance requirements.
+    </p>
+
+    <h2 id="scope-of-work">Scope of Work</h2>
+    <p>
+      The Community Group will define and maintain the formal ontology for AI Agent interoperability, security, and communication. This includes a machine-readable, logically consistent framework for defining agents, their capabilities, and the rules governing their interactions. The scope includes:
+    </p>
+    <ul>
+      <li><strong>Interaction Semantics</strong>: Formal definitions for Intent, Delegation, Capability advertisement, ExecutionRecord, and related CommunicativeActs.</li>
+      <li><strong>Identity and Verifiability Primitives</strong>: Use of Decentralized Identifiers (DIDs), Verifiable Credentials (VCs), signatures, and provenance structures needed to establish trust in agent actions. This includes binding DIDs to hardware roots of trust (e.g., TEEs like ARM TrustZone) through attestation.</li>
+      <li><strong>Narrative Model</strong>: The definition of an append-only, context-complete semantic log that provides traceability, accountability, and explainability of agent behavior.</li>
+      <li><strong>Semantic Ledger Model</strong>: A logical model for representing immutable, ordered, verifiable records. This is a semantic abstraction—no blockchain or specific implementation technology is implied.</li>
+      <li><strong>Conformance Definitions</strong>: Minimal normative requirements for interpreting CommunicativeActs, Delegations, and other semantic elements in a consistent manner across implementations.</li>
+      <li><strong>Machine-Readable Ontology Artifacts</strong>: RDF/OWL vocabularies, JSON-LD contexts, SHACL shapes that express the above concepts in a formally verifiable way.</li>
+      <li><strong>AgentIDL (WebIDL extension)</strong>: An Interface Description Language generated from the core ontology to facilitate code generation. The scope includes defining the language and producing a reference implementation of an AgentIDL compiler.</li>
+      <li><strong>Knowledge Representation Technology Bridge for Agent Memory</strong>: Defining the AgentIDL interfaces and serialization processes for integrating <strong>stateful, version-controlled</strong> knowledge representation technologies (e.g., GraphDBs, systems supporting version control like Git for knowledge artifacts) as a bridge for an Agent's internal memory and communication. <strong>Note: Stateless memory solutions like Vector Databases are explicitly out of scope, as they do not support the cognitive memory requirements for agents.</strong></li>
+      <li><strong>Schema.org Extension Submission</strong>: Developing and submitting extensions to Schema.org to incorporate Agent-specific semantic concepts, facilitating broader web discoverability and interoperability.</li>
+    </ul>
+
+    <h3 id="out-of-scope">Out of Scope</h3>
+    <p>The following topics are explicitly not within the scope of this Community Group. These topics may be implemented by downstream systems, but will not be defined, standardized, or constrained by this CG:</p>
+    <ul>
+      <li><strong>Transport Protocols</strong>: No definition or modification of any transport layer (e.g., HTTP, WebSockets, TCP, UDP, QUIC).</li>
+      <li><strong>Internal Agent Reasoning Models</strong>: The CG does not define LLM behavior, planning algorithms, inference engines, or internal cognitive architectures.</li>
+      <li><strong>Execution Backends and Compute Targets</strong>: The CG does not specify how semantic instructions are executed on CPU, GPU, WASM, or other hardware.</li>
+      <li><strong>Economic Models and Payment Systems</strong>: The CG does not define settlement systems, payment rails, or token models.</li>
+      <li><strong>Blockchain / Distributed Ledger Technology</strong>: The CG does not mandate or define consensus protocols or DLT implementations.</li>
+      <li><strong>Domain-Specific Knowledge or Vertical Ontologies</strong>: No legal, medical, financial, or other industry-specific knowledge models are defined.</li>
+      <li><strong>Governance, Policy, or Legal Interpretation</strong>: The CG does not define regulatory frameworks or legal norms.</li>
+      <li><strong>Runtime Implementations or SDKs</strong>: The CG does not produce executable software, agents, or runtimes.</li>
+      <li><strong>Conflict Resolution Mechanisms</strong>: The CG does not define mechanisms for resolving conflicts (e.g., CRDT, OT).</li>
+      <li><strong>Browser Applications</strong>: The CG does not focus on browser-based applications or short-lived client-side interactions.</li>
+    </ul>
+
+    <h2 id="deliverables">Deliverables</h2>
+
+    <h3 id="specifications">Specifications</h3>
+    <p>
+      The Community Group intends to publish:
+    </p>
+    <ul>
+      <li><strong>AI Agent Semantic Communication Ontology v1.0</strong>: Published in Turtle and JSON-LD, encompassing all defined modules.</li>
+      <li><strong>AgentIDL Specification and Reference Implementation</strong>: A formal specification for AgentIDL and a reference implementation of its compiler.</li>
+      <li><strong>SHACL Shapes for Ontology Validation</strong>: A comprehensive suite of SHACL shapes to ensure data quality and adherence to the ontology.</li>
+      <li><strong>Implementation and Governance Notes</strong>: Guidelines and best practices for implementing and governing agents based on the ontology.</li>
+      <li><strong>Interoperability Best Practices</strong>: Guidelines for how agent runtimes, OS-level systems, and model providers can adopt the ontology for seamless interoperability.</li>
+    </ul>
+
+    <h3 id="non-normative-reports">Non-Normative Reports</h3>
+    <p>
+      The group may produce additional Community Group Reports such as use cases, requirements, 
+      white papers, interoperability guides, and mapping documents.
+    </p>
+
+    <h3 id="test-suites">Test Suites and Other Software</h3>
+    <p>
+      The group MAY produce test suites and example implementations to support the specifications.
+      See the GitHub LICENSE file for contribution licensing information.
+    </p>
+
+    <h2 id="liaisons">Dependencies or Liaisons</h2>
+    <p>The group expects to coordinate with the following:</p>
+
+    <ul>
+      <li>Credentials Community Group</li>
+      <li>Decentralized Identifier Working Group</li>
+      <li>Verifiable Credentials Working Group</li>
+      <li>Web of Things Working Group</li>
+      <li>AI governance and safety-related community initiatives</li>
+      <li>External agent framework communities and implementers</li>
+    </ul>
+
+    <h2 id="process">Community and Business Group Process</h2>
+    <p>
+      The group operates under the 
+      <a href="https://www.w3.org/community/about/process/">Community and Business Group Process</a>.
+      Terms in this Charter that conflict with that Process are void.
+    </p>
+
+    <p>
+      W3C seeks organizational commitments under the 
+      <a href="https://www.w3.org/community/about/process/cla/">W3C Community Contributor License Agreement (CLA)</a>.
+      When an individual contributes without representing an organization, W3C will seek a CLA from the relevant 
+      organization at the point the individual contributes to a Deliverable.
+    </p>
+
+    <p>
+      The <a href="https://www.w3.org/Consortium/cepc/">W3C Code of Ethics and Professional Conduct</a>
+      applies to participation in this group.
+    </p>
+
+    <h2 id="worklimit">Work Limited to Charter Scope</h2>
+    <p>
+      The group will not publish Specifications outside the scope stated above.
+      See <a href="#charter-change">Amendments to this Charter</a> for the process to revise the scope.
+    </p>
+
+    <h2 id="contrib">Contribution Mechanics</h2>
+    <p>
+      Substantive contributions to Specifications may only be made by participants who have agreed 
+      to the W3C Community Contributor License Agreement (CLA).
+    </p>
+
+    <p>
+      Specifications and software outputs must use the 
+      <a href="http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">
+      W3C Software and Document License</a>.
+    </p>
+
+    <p>
+      All contributions are made via the group’s GitHub repositories. Contributions may be submitted 
+      via pull requests, issues, or comments on existing issues.
+    </p>
+
+    <p>
+      All repositories must contain the standard 
+      <a href="https://github.com/w3c/licenses/blob/master/CG-CONTRIBUTING.md">CONTRIBUTING</a>
+      and 
+      <a href="https://github.com/w3c/licenses/blob/master/CG-LICENSE.md">LICENSE</a> files.
+    </p>
+
+    <h2 id="transparency">Transparency</h2>
+    <p>
+      All technical work will occur in public GitHub repositories. Meeting minutes and summaries 
+      will be posted publicly.
+    </p>
+
+    <h2 id="decision">Decision Process</h2>
+    <p>
+      The group will seek consensus. If consensus is unclear, a Call for Consensus (CfC) may be issued.
+      When required for progress, Committers may select an alternative with substantial support.
+      Objections may be addressed by maintaining alternative forks for evaluation.
+    </p>
+
+    <h2 id="chairs">Chair Selection</h2>
+    <p>
+      Participants choose their Chair(s). If five participants from distinct organizations call for an election,
+      the group will run a formal election as described in the charter template, 
+      consulting the Community Development Lead as necessary.
+    </p>
+
+    <h2 id="charter-change">Amendments to this Charter</h2>
+    <p>
+      The group may propose an amended charter using the Decision Process. 
+      Approval requires a 30-day vote and 2/3 support of votes cast. 
+      Minor corrections may be made through simpler group decisions.
+    </p>
+
+  </body>
+</html>
