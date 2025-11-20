@@ -5,9 +5,7 @@ Documents are organized according to a W3C-consistent structure, covering explai
 This index provides a unified entry point for the entire specification set.
 
 
-============================================================
-1. Status of This Document
-============================================================
+## 1. Status of This Document
 
 This is an early-stage, work-in-progress draft prepared within the Semantic Agent Communication Community Group.  
 The contents in this directory do not yet represent a W3C Recommendation or a work item of any W3C Working Group.  
@@ -16,9 +14,7 @@ These documents are exploratory and intended to guide future proposals, technica
 Editors assume that portions of this specification suite may be submitted as Community Group Reports, and—if adopted—may serve as input to a future Working Group.
 
 
-============================================================
-2. Document Structure Overview
-============================================================
+## 2. Document Structure Overview
 
 The specification suite is organized into six layers:
 
@@ -33,10 +29,7 @@ G. W3C-Formatted Output (HTML)
 
 Each category below lists the corresponding files already present in this repository.
 
-
-============================================================
-3. A. Explainer and Introductory Documents
-============================================================
+## 3. A. Explainer and Introductory Documents
 
 - specs/Explainer.md  
 - specs/primer.md  
@@ -44,13 +37,12 @@ Each category below lists the corresponding files already present in this reposi
 
 
 Purpose:
+
 These documents introduce motivations, use cases, conceptual framing, and legal foundations.  
 They represent the "onboarding" layer for implementers and reviewers.
 
 
-============================================================
-4. B. Core Specification Layer
-============================================================
+## 4. B. Core Specification Layer
 
 - specs/core-ontology.md  
 - specs/core-ontology-diagram.md  
@@ -62,13 +54,12 @@ They represent the "onboarding" layer for implementers and reviewers.
 
 
 Purpose:
+
 These files provide formal definitions, terminology, structural semantics, diagrams, ISO-aligned mappings, and the proposed Agent IDL extensions.  
 They form the foundation of the technical model.
 
 
-============================================================
-5. C. Architecture and Protocol
-============================================================
+## 5. C. Architecture and Protocol
 
 - specs/architecture.md  
 - specs/protocol.md
@@ -77,10 +68,7 @@ They form the foundation of the technical model.
 Purpose:
 These documents describe the execution model, interaction patterns, delegation flow, contract binding, lifecycle rules, and protocol behaviors for semantic agents.
 
-
-============================================================
-6. D. Vocabulary Suite
-============================================================
+## 6. D. Vocabulary Suite
 
 Directory: specs/vocabulary/
 
@@ -105,9 +93,7 @@ The vocabulary suite defines machine-interpretable terms, classes, properties, a
 These vocabularies are intended to align with JSON-LD contexts and RDF semantics.
 
 
-============================================================
-7. E. Interoperability and External Alignments
-============================================================
+## 7. E. Interoperability and External Alignments
 
 - specs/schema-org-mapping.md  
 - specs/mapping.md  
@@ -118,9 +104,7 @@ Purpose:
 These materials provide conceptual and formal crosswalks between the Semantic Agent framework and external standards, including Schema.org, ISO/IEC work items, and related ecosystems.
 
 
-============================================================
-8. F. Security and Threat Model
-============================================================
+## 8. F. Security and Threat Model
 
 - specs/minimal-threat-model.md  
 - specs/security.md  
@@ -132,9 +116,7 @@ These documents describe threat vectors, risk surfaces, defensive assumptions, a
 They complement the identity, delegation, and ledger models defined in the core specifications.
 
 
-============================================================
-9. G. W3C-Formatted Output
-============================================================
+## 9. G. W3C-Formatted Output
 
 - specs/w3c/core-ontology.html
 
@@ -144,9 +126,7 @@ This file demonstrates the emerging structure of a W3C-styled specification (HTM
 It is not yet a complete Working Draft but may serve as the starting point for a future ED (Editor’s Draft) or WD (Working Draft).
 
 
-============================================================
-10. Future Deliverables (Optional)
-============================================================
+## 10. Future Deliverables (Optional)
 
 The following documents may be introduced as the specification matures:
 
@@ -161,9 +141,7 @@ The following documents may be introduced as the specification matures:
 - Candidate W3C Working Draft (if chartered)
 
 
-============================================================
-11. Versioning Notes
-============================================================
+## 11. Versioning Notes
 
 - All documents in this directory are versioned independently.  
 - Cross-references between documents should use relative paths.  
@@ -171,9 +149,7 @@ The following documents may be introduced as the specification matures:
 - Vocabulary documents should remain stable once incorporated into JSON-LD contexts.
 
 
-============================================================
-12. Contact
-============================================================
+## 12. Contact
 
 Editors and contributors should coordinate through the Semantic Agent Communication Community Group communication channels.  
 Feedback, issues, and pull requests are welcome.
