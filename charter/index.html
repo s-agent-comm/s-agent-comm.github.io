@@ -8,11 +8,11 @@
   <script src="https://www.w3.org/Tools/respec/respec-w3c"></script>
   <script class="remove">
     var respecConfig = {
-      publishDate: "2025-11-20",
+      publishDate: "2025-12-09",
       specStatus: "base",
       shortName: "s-agent-comm-charter",
       github: "s-agent-comm/agent-semantic-communication-ontology",
-      latestVersion: "https://s-agent-comm.github.io/charter/",  // 👈 加這行覆蓋自動版
+      latestVersion: "https://s-agent-comm.github.io/charter/",  
       subtitle: "Semantic Agent Communication Community Group Charter",
       editors: [
         {
@@ -136,7 +136,7 @@
       <li>Blockchain or distributed consensus mechanisms</li>
       <li>Vertical or domain-specific ontologies (medical, financial, legal, etc.)</li>
       <li>Regulatory or legal frameworks</li>
-      <li>Executable agent runtimes, SDKs, or products</li>
+      <li>Executable agent runtimes, SDKs, or products (discussion of SDK implementation patterns to inform normative work is permitted)</li>
       <li>Conflict resolution mechanisms (CRDT, OT)</li>
     </ul>
   </section>
@@ -155,7 +155,7 @@
 
       <ul>
         <li>
-          <strong>AI Agent Semantic Communication Ontology v1.0</strong><br />
+          <strong>AI Agent Semantic Communication Ontology</strong><br />
           A modular ontology defining core concepts such as Agent, Intent, Delegation,
           Capability, ExecutionRecord, and related interaction semantics. Published
           in RDF/Turtle and JSON-LD formats with SHACL validation.
@@ -376,23 +376,18 @@
     <h2>Decision Process</h2>
 
     <p>
-      The Group seeks to make decisions by consensus. After discussion and due
-      consideration of different views, the Chair will assess whether consensus
-      has been achieved.
+      The Group makes decisions by consensus. To ensure progress, the Group uses a <strong>lazy consensus</strong> model where silence implies assent. Proposals are made on the Group's public channels (e.g., GitHub Issues) and are considered accepted if no substantial objections are raised within a seven-day review period.
     </p>
 
     <p>
-      When consensus is unclear, the Chair may issue a Call for Consensus (CfC)
-      allowing multi-day feedback. If substantial disagreement persists and a
-      decision is required for progress, Committers may select an alternative
+      If substantial objections are raised, the Chair will facilitate discussion to resolve the disagreement. When consensus remains unclear, the Chair may issue a Call for Consensus (CfC)
+      allowing for further feedback. If disagreement persists, Committers may select an alternative
       that has substantial support. Individuals who disagree are encouraged to
       maintain alternative proposals or forks for further evaluation.
     </p>
 
     <p>
-      Decisions reached during meetings must be recorded in GitHub Issues.
-      Any participant may object within seven days by providing clear technical
-      reasons. The Chair will facilitate resolution following the Group’s process.
+      Decisions reached during meetings must be recorded in GitHub Issues and are subject to the same seven-day review period for objections.
     </p>
   </section>
 
