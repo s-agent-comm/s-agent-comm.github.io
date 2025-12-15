@@ -17,6 +17,17 @@ Our vision is to create a universal standard for safe and effective semantic com
 
 ---
 
+## Charter
+
+The Charter of the Semantic Agent Communication Community Group has been adopted
+by Community Group consensus and serves as the governing document of the Group.
+
+The Charter is published at:
+
+https://w3c-cg.github.io/s-agent-comm/
+
+--
+
 ## Core Ontology
 
 The core Agent Semantic Communication Ontology, including all TTL, JSON-LD, and SHACL files, is now managed in a dedicated repository to better separate the formal standard from community governance and documentation.
